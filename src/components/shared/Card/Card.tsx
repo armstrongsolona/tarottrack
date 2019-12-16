@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { boxShadow } from "../../../styles/shared";
 import { COLORS } from "../../../constants/colors";
 
 interface CardProps {
@@ -21,7 +22,7 @@ const Card = (props: CardProps) => {
 const CardStyles = styled.div`
   background: ${COLORS.WHITE};
   border-radius: 0.25rem;
-  box-shadow: 2px 2px 5px ${COLORS.GREY_SHADOW};
+  box-shadow: ${boxShadow};
   color: ${COLORS.BLACK};
   font-size: 1rem;
   max-width: 34rem;

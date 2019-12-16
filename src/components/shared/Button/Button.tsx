@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { boxShadow, boxShadowInset } from "../../../styles/shared";
 import { COLORS } from "../../../constants/colors";
 
 interface ButtonProps {
@@ -32,14 +33,14 @@ const Button = (props: ButtonProps) => {
 const ButtonStyles = styled.button`
   border: none;
   border-radius: 0.75rem;
-  box-shadow: 2px 2px 5px ${COLORS.GREY_SHADOW};
+  box-shadow: ${boxShadow};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   font-size: 1rem;
   font-weight: 600;
   padding: 0.8rem 1rem;
 
   &:active {
-    box-shadow: inset 1px 1px 2px ${COLORS.GREY_SHADOW};
+    box-shadow: ${boxShadowInset};
   }
 `;
 
