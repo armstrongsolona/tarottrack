@@ -1,22 +1,30 @@
 import React from 'react';
 import styled from 'styled-components';
+import Avatar from '../../../Avatar/Avatar';
 import { COLORS } from '../../../../../constants/colors';
 
 interface AppBarTopProps {
   logo: React.ReactNode;
   accountMenu: React.ReactNode;
   mobileMenu: React.ReactNode;
+  userImgSrc?: string;
+  userInitials?: string;
+  username: string;
 }
 
 const AppBarTop = (props: AppBarTopProps) => {
-  const { logo, accountMenu, mobileMenu } = props;
+  const { logo, mobileMenu, userImgSrc, userInitials, username } = props;
 
   return (
     <AppBarTopStyles>
       <AppBarTopInnerStyles>
         {logo}
         <div>
-          {accountMenu}
+          <Avatar
+            initials={userInitials}
+            imgSrc={userImgSrc}
+            username={username}
+          />
           {mobileMenu}
         </div>
       </AppBarTopInnerStyles>

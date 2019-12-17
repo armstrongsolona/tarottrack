@@ -25,6 +25,7 @@ const Frame = (props: FrameProps) => {
         logo={<FontAwesomeIcon icon={faSimCard} />}
         accountMenu={<FontAwesomeIcon icon={faCoffee} />}
         mobileMenu={<FontAwesomeIcon icon={faHamburger} />}
+        username='MyTempUsername'
       />
       <FrameMainStyles className='FrameMain'>
         <Nav />
