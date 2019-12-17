@@ -5,14 +5,13 @@ import { COLORS } from '../../../constants/colors';
 interface AvatarProps {
   imgSrc?: string;
   initials?: string;
-  username?: string;
+  username: string;
 }
 
 const Avatar = (props: AvatarProps) => {
   const { imgSrc, initials, username } = props;
 
-  const accountMenu = 'Account and settings menu';
-  const ariaLabel = username ? `${accountMenu} for ${username}` : accountMenu;
+  const ariaLabel = `Account and settings menu for ${username}`;
 
   const markup = imgSrc ? (
     <AvatarImageStyles src={imgSrc} alt='' role='presentation' />
