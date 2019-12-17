@@ -4,25 +4,46 @@ import { COLORS } from "../../../../../../constants/colors";
 
 interface LinkProps {
   children: React.ReactNode;
+  icon: React.ReactNode;
 }
 
 const Link = (props: LinkProps) => {
-  const { children } = props;
+  const { children, icon } = props;
 
-  return <LinkStyles>{children}</LinkStyles>;
+  const markup = icon ? (
+    <LinkIconWrapper>
+      <LinkIcon>{icon}</LinkIcon>
+      {children}
+    </LinkIconWrapper>
+  ) : (
+    children
+  );
+
+  return <LinkStyles>{markup}</LinkStyles>;
 };
 
 const LinkStyles = styled.li`
-  background: ${COLORS.WHITE};
+  background: ${COLORS.GREY_LIGHTER};
   cursor: pointer;
   height: 100%;
   list-style-type: none;
-  margin: 0.5rem 0;
-  padding: 0.5rem 0 0.5rem 1rem;
+  padding: 0.75rem 0 0.75rem 1rem;
 
   &:hover {
-    background: ${COLORS.GREY_LIGHT};
+    background: ${COLORS.WHITE};
   }
+`;
+
+const LinkIcon = styled.span`
+  margin-right: 0.75rem;
+  width: 1rem;
+  display: flex;
+  justify-content: flex-end;
+`;
+
+const LinkIconWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export default Link;

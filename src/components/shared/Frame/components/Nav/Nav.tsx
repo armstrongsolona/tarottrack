@@ -1,7 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPlus,
+  faClone,
+  faBookOpen,
+  faFileAlt
+} from "@fortawesome/free-solid-svg-icons";
 import Button from "../../../Button/Button";
 import Link from "./components/Link";
 import { COLORS } from "../../../../../constants/colors";
@@ -14,22 +19,32 @@ const Nav = () => {
   return (
     <NavStyles>
       <NavButtonStyles>
-        <Button type="primary" id="new-reading">
+        <Button
+          type="primary"
+          icon={<FontAwesomeIcon icon={faPlus} />}
+          id="new-reading"
+        >
           New reading
         </Button>
       </NavButtonStyles>
 
       <NavListStyles>
-        <Link>Saved readings</Link>
-        <Link>Spreads</Link>
-        <Link>Card meanings</Link>
+        <Link icon={<FontAwesomeIcon icon={faFileAlt} color={COLORS.BLACK} />}>
+          Saved readings
+        </Link>
+        <Link icon={<FontAwesomeIcon icon={faClone} color={COLORS.BLACK} />}>
+          Spreads
+        </Link>
+        <Link icon={<FontAwesomeIcon icon={faBookOpen} color={COLORS.BLACK} />}>
+          Card meanings
+        </Link>
       </NavListStyles>
     </NavStyles>
   );
 };
 
 const NavStyles = styled.nav`
-  background: ${COLORS.WHITE};
+  background: ${COLORS.GREY_LIGHTER};
   border-right: 1px solid ${COLORS.GREY_LIGHT};
   height: 100%;
   min-height: 100vh;

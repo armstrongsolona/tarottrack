@@ -6,6 +6,7 @@ import { COLORS } from "../../../constants/colors";
 interface ButtonProps {
   children: string;
   disabled?: boolean;
+  icon?: React.ReactNode;
   id: string;
   type: ButtonType;
 }
@@ -13,7 +14,7 @@ interface ButtonProps {
 export type ButtonType = "primary" | "secondary" | "tertiary";
 
 const Button = (props: ButtonProps) => {
-  const { children, disabled = false, id, type = "primary" } = props;
+  const { children, disabled = false, icon, id, type = "primary" } = props;
 
   let StyledButtonComponent = ButtonPrimary;
 
@@ -23,9 +24,18 @@ const Button = (props: ButtonProps) => {
     StyledButtonComponent = ButtonTertiary;
   }
 
+  const markup = icon ? (
+    <ButtonIconWrapper>
+      <ButtonIcon>{icon}</ButtonIcon>
+      {children}
+    </ButtonIconWrapper>
+  ) : (
+    children
+  );
+
   return (
     <StyledButtonComponent disabled={disabled} id={id}>
-      {children}
+      {markup}
     </StyledButtonComponent>
   );
 };
@@ -36,7 +46,8 @@ const ButtonStyles = styled.button`
   box-shadow: ${boxShadow};
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: 0.07rem;
   padding: 0.8rem 1rem;
 
   &:active {
@@ -72,6 +83,15 @@ const ButtonTertiary = styled(ButtonStyles)`
   &:focus {
     background: ${COLORS.GREY_LIGHTER};
   }
+`;
+
+const ButtonIcon = styled.span`
+  margin-right: 0.5rem;
+`;
+
+const ButtonIconWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export default Button;
