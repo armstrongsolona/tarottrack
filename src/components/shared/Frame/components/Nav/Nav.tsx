@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlus,
   faClone,
   faBookOpen,
-  faFileAlt
-} from "@fortawesome/free-solid-svg-icons";
-import Button from "../../../Button/Button";
-import Link from "./components/Link";
-import { COLORS } from "../../../../../constants/colors";
+  faFileAlt,
+} from '@fortawesome/free-solid-svg-icons';
+import Button from '../../../Button/Button';
+import Link from './components/Link';
+import { COLORS } from '../../../../../constants/colors';
 
 interface NavProps {
   children: React.ReactNode;
@@ -20,9 +20,9 @@ const Nav = () => {
     <NavStyles>
       <NavButtonStyles>
         <Button
-          type="primary"
+          type='primary'
           icon={<FontAwesomeIcon icon={faPlus} />}
-          id="new-reading"
+          id='new-reading'
         >
           New reading
         </Button>

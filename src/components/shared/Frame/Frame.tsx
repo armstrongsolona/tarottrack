@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCoffee,
   faHamburger,
-  faSimCard
-} from "@fortawesome/free-solid-svg-icons";
-import AppBarTop from "./components/AppBarTop/AppBarTop";
-import Nav from "./components/Nav/Nav";
-import Main from "./components/Main/Main";
-import { COLORS } from "../../../constants/colors";
+  faSimCard,
+} from '@fortawesome/free-solid-svg-icons';
+import AppBarTop from './components/AppBarTop/AppBarTop';
+import Nav from './components/Nav/Nav';
+import Main from './components/Main/Main';
+import { COLORS } from '../../../constants/colors';
 
 interface FrameProps {
   children: React.ReactNode;
@@ -20,13 +20,13 @@ const Frame = (props: FrameProps) => {
   const { children, title } = props;
 
   return (
-    <FrameStyles className="Frame">
+    <FrameStyles className='Frame'>
       <AppBarTop
         logo={<FontAwesomeIcon icon={faSimCard} />}
         accountMenu={<FontAwesomeIcon icon={faCoffee} />}
         mobileMenu={<FontAwesomeIcon icon={faHamburger} />}
       />
-      <FrameMainStyles className="FrameMain">
+      <FrameMainStyles className='FrameMain'>
         <Nav />
         <Main title={title}>{children}</Main>
       </FrameMainStyles>
