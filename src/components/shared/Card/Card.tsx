@@ -26,7 +26,7 @@ const CardStyles = styled.div`
   color: ${COLORS.BLACK};
   font-size: 1rem;
   max-width: 34rem;
-  width: 100%;
+  margin-right: 2rem;
   padding: 1.5rem;
   text-align: left;
 `;

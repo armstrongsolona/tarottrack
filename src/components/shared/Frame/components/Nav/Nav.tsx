@@ -49,7 +49,7 @@ const NavStyles = styled.nav`
   height: 100%;
   min-height: 100vh;
   padding-top: 1.5rem;
-  width: 12rem;
+  min-width: 12rem;
 `;
 
 const NavButtonStyles = styled.div`
