@@ -26,14 +26,14 @@ const CardStyles = styled.div`
   color: ${COLORS.BLACK};
   font-size: 1rem;
   max-width: 34rem;
-  width: 100%;
+  margin-right: 2rem;
   padding: 1.5rem;
   text-align: left;
 `;
 
-const CardTitle = styled.h3`
+const CardTitle = styled.h2`
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 0 0 1.5rem 0;
   padding: 0;
 `;
