@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCoffee,
   faHamburger,
   faSimCard
-} from "@fortawesome/free-solid-svg-icons";
-import AppBarTop from "./components/AppBarTop/AppBarTop";
-import Nav from "./components/Nav/Nav";
-import Main from "./components/Main/Main";
-import { COLORS } from "../../../constants/colors";
+} from '@fortawesome/free-solid-svg-icons';
+import AppBarTop from './components/AppBarTop/AppBarTop';
+import Nav from './components/Nav/Nav';
+import Main from './components/Main/Main';
+import { COLORS } from '../../../constants/colors';
 
 interface FrameProps {
   children: React.ReactNode;

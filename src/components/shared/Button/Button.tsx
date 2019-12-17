@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { boxShadow, boxShadowInset } from "../../../styles/shared";
-import { COLORS } from "../../../constants/colors";
+import React from 'react';
+import styled from 'styled-components';
+import { boxShadow, boxShadowInset } from '../../../styles/shared';
+import { COLORS } from '../../../constants/colors';
 
 interface ButtonProps {
   children: string;
@@ -11,16 +11,16 @@ interface ButtonProps {
   type: ButtonType;
 }
 
-export type ButtonType = "primary" | "secondary" | "tertiary";
+export type ButtonType = 'primary' | 'secondary' | 'tertiary';
 
 const Button = (props: ButtonProps) => {
-  const { children, disabled = false, icon, id, type = "primary" } = props;
+  const { children, disabled = false, icon, id, type = 'primary' } = props;
 
   let StyledButtonComponent = ButtonPrimary;
 
-  if (type === "secondary") {
+  if (type === 'secondary') {
     StyledButtonComponent = ButtonSecondary;
-  } else if (type === "tertiary") {
+  } else if (type === 'tertiary') {
     StyledButtonComponent = ButtonTertiary;
   }
 
@@ -44,7 +44,7 @@ const ButtonStyles = styled.button`
   border: none;
   border-radius: 0.75rem;
   box-shadow: ${boxShadow};
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.07rem;

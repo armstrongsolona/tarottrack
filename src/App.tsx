@@ -1,26 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
+import Frame from './components/shared/Frame/Frame';
+import Button from './components/shared/Button/Button';
+import Card, { CardSection } from './components/shared/Card/Card';
 import './App.css';
 
 const App: React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Frame title="Saved readings">
+        <Card title="This is a card">
+          This is some card content. Much longer so I can actually see this
+          thing expand.
+          <CardSection>
+            Another section with some more sentences that fit into whatever goes
+            below and now I can see it all.
+          </CardSection>
+          <CardSection>
+            Another section with some more sentences that fit into whatever goes
+            below and now I can see it all.
+          </CardSection>
+        </Card>
+      </Frame>
     </div>
   );
-}
+};
 
 export default App;

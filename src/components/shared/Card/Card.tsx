@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { boxShadow } from "../../../styles/shared";
-import { COLORS } from "../../../constants/colors";
+import React from 'react';
+import styled from 'styled-components';
+import { boxShadow } from '../../../styles/shared';
+import { COLORS } from '../../../constants/colors';
 
 interface CardProps {
   children: React.ReactNode;

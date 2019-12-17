@@ -1,4 +1,4 @@
-import { COLORS } from "../constants/colors";
+import { COLORS } from '../constants/colors';
 
 export const boxShadow = () => `2px 2px 4px ${COLORS.GREY_SHADOW}`;
 
