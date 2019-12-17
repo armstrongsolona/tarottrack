@@ -31,9 +31,9 @@ const CardStyles = styled.div`
   text-align: left;
 `;
 
-const CardTitle = styled.h3`
+const CardTitle = styled.h2`
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 0 0 1.5rem 0;
   padding: 0;
 `;
