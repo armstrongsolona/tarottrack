@@ -24,6 +24,7 @@ const Link = (props: LinkProps) => {
 
 const LinkStyles = styled.li`
   background: ${COLORS.GREY_LIGHTER};
+  color: ${COLORS.BLACK};
   cursor: pointer;
   height: 100%;
   list-style-type: none;

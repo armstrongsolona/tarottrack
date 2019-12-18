@@ -21,3 +21,14 @@ code {
 #root {
   height: 100%;
 }
+
+a,
+a:visited {
+  color: #21a2ab;
+  text-decoration: none;
+}
+
+a:hover,
+a:active {
+  color: #28bdc8;
+}
