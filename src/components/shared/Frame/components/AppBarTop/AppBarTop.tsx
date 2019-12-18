@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Avatar from '../../../Avatar/Avatar';
+import { APP_BAR_TOP_HEIGHT } from '../../constants';
 import { COLORS } from '../../../../../constants/colors';
 
 interface AppBarTopProps {
@@ -13,7 +14,7 @@ interface AppBarTopProps {
 }
 
 const AppBarTop = (props: AppBarTopProps) => {
-  const { logo, mobileMenu, userImgSrc, userInitials, username } = props;
+  const { logo, userImgSrc, userInitials, username } = props;
 
   return (
     <AppBarTopStyles>
@@ -25,7 +26,6 @@ const AppBarTop = (props: AppBarTopProps) => {
             imgSrc={userImgSrc}
             username={username}
           />
-          {mobileMenu}
         </div>
       </AppBarTopInnerStyles>
     </AppBarTopStyles>
@@ -35,16 +35,18 @@ const AppBarTop = (props: AppBarTopProps) => {
 const AppBarTopStyles = styled.header`
   background: ${COLORS.GREY_TOP_BAR};
   border-bottom: 1px solid ${COLORS.GREY_LIGHT};
+  height: ${APP_BAR_TOP_HEIGHT}rem;
   width: 100%;
 `;
 
 const AppBarTopInnerStyles = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: row;
+  height: 100%;
   justify-content: space-between;
-  align-items: center;
+  padding: 0 1rem;
   max-width: 75rem;
-  padding: 1.5rem;
 `;
 
 export default AppBarTop;

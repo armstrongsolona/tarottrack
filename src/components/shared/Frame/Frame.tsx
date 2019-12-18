@@ -11,6 +11,7 @@ import AppBarTop from './components/AppBarTop/AppBarTop';
 import Nav from './components/Nav/Nav';
 import Main from './components/Main/Main';
 import Button from '../Button/Button';
+import { APP_BAR_TOP_HEIGHT, ONE_REM } from './constants';
 import { COLORS } from '../../../constants/colors';
 
 interface FrameProps {
@@ -53,13 +54,12 @@ const Frame = (props: FrameProps) => {
 const FrameStyles = styled.div`
   background: ${COLORS.GREY_MAIN}
   height: 100%;
-  min-height: 100vh;
   width: 100%;
 `;
 
 const FrameMainStyles = styled.div`
   display: flex;
-  height: 100%;
+  height: calc(100% - ${APP_BAR_TOP_HEIGHT * ONE_REM}px);
 `;
 
 export default Frame;
