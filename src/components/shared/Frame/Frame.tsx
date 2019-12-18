@@ -13,6 +13,7 @@ import Main from './components/Main/Main';
 import Button from '../Button/Button';
 import { APP_BAR_TOP_HEIGHT, ONE_REM } from './constants';
 import { COLORS } from '../../../constants/colors';
+import { ROUTES } from '../../../constants/routes';
 
 interface FrameProps {
   children: React.ReactNode;
@@ -42,6 +43,7 @@ const Frame = (props: FrameProps) => {
               New reading
             </Button>
           }
+          callToActionLink={ROUTES.READINGS_NEW}
           title={title}
         >
           {children}
