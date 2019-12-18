@@ -5,10 +5,12 @@ import {
   faCoffee,
   faHamburger,
   faSimCard,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import AppBarTop from './components/AppBarTop/AppBarTop';
 import Nav from './components/Nav/Nav';
 import Main from './components/Main/Main';
+import Button from '../Button/Button';
 import { COLORS } from '../../../constants/colors';
 
 interface FrameProps {
@@ -29,7 +31,20 @@ const Frame = (props: FrameProps) => {
       />
       <FrameMainStyles className='FrameMain'>
         <Nav />
-        <Main title={title}>{children}</Main>
+        <Main
+          callToAction={
+            <Button
+              type='secondary'
+              icon={<FontAwesomeIcon icon={faPlus} />}
+              id='new-reading'
+            >
+              New reading
+            </Button>
+          }
+          title={title}
+        >
+          {children}
+        </Main>
       </FrameMainStyles>
     </FrameStyles>
   );
