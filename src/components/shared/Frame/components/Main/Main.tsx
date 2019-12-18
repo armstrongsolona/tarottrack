@@ -3,16 +3,22 @@ import styled from 'styled-components';
 
 interface MainProps {
   children: React.ReactNode;
+  callToAction?: React.ReactNode;
   title: string;
 }
 
 const Main = (props: MainProps) => {
-  const { children, title } = props;
+  const { children, callToAction, title } = props;
 
   return (
     <MainStyles>
-      <MainTitleStyles>{title}</MainTitleStyles>
-      {children}
+      <MainInnerStyles>
+        <MainTop>
+          <MainTitleStyles>{title}</MainTitleStyles>
+          {callToAction}
+        </MainTop>
+        {children}
+      </MainInnerStyles>
     </MainStyles>
   );
 };
@@ -21,6 +27,16 @@ const MainStyles = styled.main`
   height: 100%;
   padding: 1rem 0 0 2rem;
   width: 100%;
+`;
+
+const MainInnerStyles = styled.div`
+  max-width: 40rem;
+`;
+
+const MainTop = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 const MainTitleStyles = styled.h1`

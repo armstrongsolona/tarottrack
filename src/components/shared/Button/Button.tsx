@@ -68,6 +68,8 @@ const ButtonPrimary = styled(ButtonStyles)`
 const ButtonSecondary = styled(ButtonStyles)`
   background: ${COLORS.BLUE_OCEAN_MEDIUM};
   color: ${COLORS.WHITE};
+  font-size: 0.9rem;
+  font-weight: 400;
 
   &:hover,
   &:focus {
