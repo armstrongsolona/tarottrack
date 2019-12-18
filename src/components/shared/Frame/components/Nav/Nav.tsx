@@ -9,6 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../Button/Button';
 import Link from './components/Link';
+import { APP_BAR_TOP_HEIGHT, NAV_PADDING_TOP, ONE_REM } from '../../constants';
 import { COLORS } from '../../../../../constants/colors';
 
 interface NavProps {
@@ -46,8 +47,7 @@ const Nav = () => {
 const NavStyles = styled.nav`
   background: ${COLORS.GREY_LIGHTER};
   border-right: 1px solid ${COLORS.GREY_LIGHT};
-  height: 100%;
-  min-height: 100vh;
+  height: calc(100% - ${NAV_PADDING_TOP * ONE_REM}px);
   padding-top: 1.5rem;
   min-width: 12rem;
 `;
