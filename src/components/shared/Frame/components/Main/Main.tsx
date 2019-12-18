@@ -1,21 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 interface MainProps {
   children: React.ReactNode;
-  callToAction?: React.ReactNode;
+  callToAction: React.ReactNode;
+  callToActionLink: string;
   title: string;
 }
 
 const Main = (props: MainProps) => {
-  const { children, callToAction, title } = props;
+  const { children, callToAction, callToActionLink, title } = props;
 
   return (
     <MainStyles>
       <MainInnerStyles>
         <MainTop>
           <MainTitleStyles>{title}</MainTitleStyles>
-          {callToAction}
+          <Link to={callToActionLink}>{callToAction}</Link>
         </MainTop>
         {children}
       </MainInnerStyles>

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPlus,
@@ -8,8 +9,9 @@ import {
   faFileAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import Button from '../../../Button/Button';
-import Link from './components/Link';
-import { APP_BAR_TOP_HEIGHT, NAV_PADDING_TOP, ONE_REM } from '../../constants';
+import NavLink from './components/NavLink/NavLink';
+import { NAV_PADDING_TOP, ONE_REM } from '../../constants';
+import { ROUTES } from '../../../../../constants/routes';
 import { COLORS } from '../../../../../constants/colors';
 
 interface NavProps {
@@ -19,25 +21,39 @@ interface NavProps {
 const Nav = () => {
   return (
     <NavStyles>
-      <NavButtonStyles>
-        <Button
-          type='primary'
-          icon={<FontAwesomeIcon icon={faPlus} />}
-          id='new-reading'
-        >
-          New reading
-        </Button>
-      </NavButtonStyles>
+      <Link to={ROUTES.READINGS_NEW}>
+        <NavButtonStyles>
+          <Button
+            type='primary'
+            icon={<FontAwesomeIcon icon={faPlus} />}
+            id='new-reading'
+          >
+            New reading
+          </Button>
+        </NavButtonStyles>
+      </Link>
 
       <NavListStyles>
-        <Link icon={<FontAwesomeIcon icon={faFileAlt} color={COLORS.BLACK} />}>
-          Saved readings
+        <Link to={ROUTES.READINGS}>
+          <NavLink
+            icon={<FontAwesomeIcon icon={faFileAlt} color={COLORS.BLACK} />}
+          >
+            Saved readings
+          </NavLink>
         </Link>
-        <Link icon={<FontAwesomeIcon icon={faClone} color={COLORS.BLACK} />}>
-          Spreads
+        <Link to={ROUTES.SPREADS}>
+          <NavLink
+            icon={<FontAwesomeIcon icon={faClone} color={COLORS.BLACK} />}
+          >
+            Spreads
+          </NavLink>
         </Link>
-        <Link icon={<FontAwesomeIcon icon={faBookOpen} color={COLORS.BLACK} />}>
-          Card meanings
+        <Link to={ROUTES.CARDS_MEANINGS}>
+          <NavLink
+            icon={<FontAwesomeIcon icon={faBookOpen} color={COLORS.BLACK} />}
+          >
+            Card meanings
+          </NavLink>
         </Link>
       </NavListStyles>
     </NavStyles>

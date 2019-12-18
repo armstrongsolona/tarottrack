@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './components/pages/Home/Home';
+import SavedReadings from './components/pages/Readings/SavedReadings';
+import NewReading from './components/pages/Readings/NewReading';
+import Spreads from './components/pages/Spreads/Spreads';
+import CardMeanings from './components/pages/Cards/CardMeanings';
+import { ROUTES } from './constants/routes';
 import './App.css';
 
 const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className='App'>
+        <Route exact path={ROUTES.HOME} component={Home} />
+        <Route exact path={ROUTES.READINGS} component={SavedReadings} />
+        <Route exact path={ROUTES.READINGS_NEW} component={NewReading} />
+        <Route exact path={ROUTES.SPREADS} component={Spreads} />
+        <Route exact path={ROUTES.CARDS_MEANINGS} component={CardMeanings} />
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
