@@ -24,7 +24,7 @@ const Main = (props: MainProps) => {
 };
 
 const MainStyles = styled.main`
-  padding: 1rem 0 0 2rem;
+  padding: 1rem 2rem 0 2rem;
   width: 100%;
 `;
 
