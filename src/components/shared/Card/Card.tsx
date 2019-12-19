@@ -25,6 +25,7 @@ const CardStyles = styled.div`
   box-shadow: ${boxShadow};
   color: ${COLORS.BLACK};
   font-size: 1rem;
+  margin-bottom: 2rem;
   padding: 1.5rem;
   text-align: left;
 `;
