@@ -15,3 +15,12 @@ export enum COLORS {
   GREY_TOP_BAR = '#F4F4F4',
   WHITE = '#FFFFFF',
 }
+
+export enum TAG_COLORS {
+  BLUE = '#D1FCFF',
+  GREEN = '#D2FE9A',
+  GREY = '#DDDDDD',
+  PINK = '#F9D1EB',
+  RED = '#F3A7A7',
+  YELLOW = '#FFE55F',
+}
