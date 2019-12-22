@@ -1,5 +1,4 @@
 import React from 'react';
-import { TagType } from '../../shared/Tag/Tag';
 import Frame from '../../shared/Frame/Frame';
 import SavedReadingsList from './SavedReadingsList';
 
