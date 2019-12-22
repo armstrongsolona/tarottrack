@@ -1,11 +1,49 @@
 import React from 'react';
 import Frame from '../../shared/Frame/Frame';
-import Card from '../../shared/Card/Card';
+import SpreadsList from './SpreadsList';
 
 const Spreads = () => {
   return (
     <Frame title='Spreads'>
-      <Card title='Behold my title'>List of spreads</Card>
+      <SpreadsList
+        data={[
+          {
+            author: 'Tamara Fines',
+            description: 'Good for general readings on any topic.',
+            name: 'Celtic Cross',
+            positions: 10,
+            url: '/',
+          },
+          {
+            author: 'Tamara Fines',
+            description: 'Good for general readings on any topic.',
+            name: 'One Card Spread',
+            positions: 10,
+            url: '/',
+          },
+          {
+            author: 'Tamara Fines',
+            description: 'Good for general readings on any topic.',
+            name: 'Three Card Spread',
+            positions: 10,
+            url: '/',
+          },
+          {
+            author: 'Tamara Fines',
+            description: 'Good for general readings on any topic.',
+            name: 'Past Present Future',
+            positions: 10,
+            url: '/',
+          },
+          {
+            author: 'Tamara Fines',
+            description: 'Good for general readings on any topic.',
+            name: 'Celtic Cross',
+            positions: 10,
+            url: '/',
+          },
+        ]}
+      />
     </Frame>
   );
 };
