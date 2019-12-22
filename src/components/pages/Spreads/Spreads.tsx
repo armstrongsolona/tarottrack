@@ -18,7 +18,7 @@ const Spreads = () => {
             author: 'Tamara Fines',
             description: 'Good for general readings on any topic.',
             name: 'One Card Spread',
-            positions: 10,
+            positions: 1,
             url: '/',
           },
           {

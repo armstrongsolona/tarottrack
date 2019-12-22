@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClone } from '@fortawesome/free-solid-svg-icons';
 import { SavedListCardStyles } from '../../shared/Card/Card';
 import { COLORS } from '../../../constants/colors';
 
@@ -34,6 +36,9 @@ class SpreadsList extends React.Component<SpreadsListProps, never> {
       return (
         <SavedListCardStyles>
           <SpreadsQuestionStyles>
+            <SpreadsIconStyles>
+              <FontAwesomeIcon icon={faClone} color={COLORS.GREY_DARK} />
+            </SpreadsIconStyles>
             <span>
               <a href={url}>{name}</a>
             </span>
@@ -76,6 +81,10 @@ const SpreadsQuestionStyles = styled.div`
   a:active {
     text-decoration: underline;
   }
+`;
+
+const SpreadsIconStyles = styled.span`
+  margin-right: 0.75rem;
 `;
 
 const SpreadsSecondaryInfoStyles = styled.div`
