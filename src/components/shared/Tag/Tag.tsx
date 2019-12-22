@@ -12,8 +12,6 @@ import {
 import { COLORS, TAG_COLORS } from '../../../constants/colors';
 
 interface TagProps {
-  color?: string;
-  icon?: React.ReactNode;
   type: TagType;
 }
 
@@ -55,21 +53,16 @@ const Tag = (props: TagProps) => {
 
 const TagStyles = styled.button`
   align-items: center;
-  background: ${COLORS.WHITE};
-  border: 2px solid ${({ color }) => color};
+  background: ${({ color }) => color};
   border-radius: 3rem;
+  border: none;
   color: ${COLORS.GREY_DARK}
-  cursor: pointer;
   display: flex;
   font-size: 0.8rem;
   justify-content: center;
-  margin-right: 1rem;
+  margin-right: 0.75rem;
   padding: 0.25rem;
   width: 2.5rem;
-
-  &:hover {
-      background: ${({ color }) => color};
-  }
 `;
 
 export default Tag;

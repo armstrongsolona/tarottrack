@@ -19,7 +19,7 @@ const Card = (props: CardProps) => {
   );
 };
 
-const CardStyles = styled.div`
+export const CardStyles = styled.div`
   background: ${COLORS.WHITE};
   border-radius: 0.25rem;
   box-shadow: ${boxShadow};
@@ -27,7 +27,6 @@ const CardStyles = styled.div`
   font-size: 1rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  text-align: left;
 `;
 
 const CardTitle = styled.h2`
@@ -41,6 +40,11 @@ export const CardSection = styled.div`
   border-top: 1px solid ${COLORS.GREY_LIGHT};
   margin-top: 1.5rem;
   padding-top: 1.5rem;
+`;
+
+export const SavedListCardStyles = styled(CardStyles)`
+  margin-bottom: 0.5rem;
+  padding: 1rem;
 `;
 
 export default Card;
