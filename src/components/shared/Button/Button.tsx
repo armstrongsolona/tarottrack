@@ -7,7 +7,7 @@ interface ButtonProps {
   children: string;
   disabled?: boolean;
   icon?: React.ReactNode;
-  id: string;
+  id?: string;
   type: ButtonType;
 }
 

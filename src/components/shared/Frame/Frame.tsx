@@ -5,24 +5,23 @@ import {
   faCoffee,
   faHamburger,
   faSimCard,
-  faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import AppBarTop from './components/AppBarTop/AppBarTop';
 import Nav from './components/Nav/Nav';
 import Main from './components/Main/Main';
-import Button from '../Button/Button';
 import { APP_BAR_TOP_HEIGHT, ONE_REM } from './constants';
 import { COLORS } from '../../../constants/colors';
-import { ROUTES } from '../../../constants/routes';
 import { BREAKPOINTS } from '../../../constants/breakpoints';
 
 interface FrameProps {
+  callToActionText: string;
+  callToActionLink: string;
   children: React.ReactNode;
   title: string;
 }
 
 const Frame = (props: FrameProps) => {
-  const { children, title } = props;
+  const { callToActionText, callToActionLink, children, title } = props;
 
   return (
     <FrameStyles className='Frame'>
@@ -35,16 +34,8 @@ const Frame = (props: FrameProps) => {
       <FrameMainStyles className='FrameMain'>
         <Nav />
         <Main
-          callToAction={
-            <Button
-              type='secondary'
-              icon={<FontAwesomeIcon icon={faPlus} />}
-              id='new-reading'
-            >
-              New reading
-            </Button>
-          }
-          callToActionLink={ROUTES.READINGS_NEW}
+          callToActionText={callToActionText}
+          callToActionLink={callToActionLink}
           title={title}
         >
           {children}

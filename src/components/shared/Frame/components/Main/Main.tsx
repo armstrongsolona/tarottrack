@@ -1,17 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import Button from '../../../Button/Button';
 import { BREAKPOINTS } from '../../../../../constants/breakpoints';
 
 interface MainProps {
-  children: React.ReactNode;
-  callToAction: React.ReactNode;
   callToActionLink: string;
+  callToActionText: string;
+  children: React.ReactNode;
   title: string;
 }
 
 const Main = (props: MainProps) => {
-  const { children, callToAction, callToActionLink, title } = props;
+  const { children, callToActionLink, callToActionText, title } = props;
 
   return (
     <MainStyles>
@@ -19,7 +22,11 @@ const Main = (props: MainProps) => {
         <MainTop>
           <MainTitleStyles>{title}</MainTitleStyles>
           <MainCallToActionStyles>
-            <Link to={callToActionLink}>{callToAction}</Link>
+            <Link to={callToActionLink}>
+              <Button type='secondary' icon={<FontAwesomeIcon icon={faPlus} />}>
+                {callToActionText}
+              </Button>
+            </Link>
           </MainCallToActionStyles>
         </MainTop>
         {children}
@@ -32,13 +39,21 @@ const MainStyles = styled.main`
   padding: 1rem 2rem 0 2rem;
   width: 100%;
 
-  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
-    padding: 1rem 2rem 0 0;
+  @media screen and (max-width: ${BREAKPOINTS.MOBILE_MAX}px) {
+    padding: 1rem 0 0 0;
   }
 `;
 
 const MainInnerStyles = styled.div`
   max-width: 40rem;
+
+  @media screen and (max-width: ${BREAKPOINTS.MOBILE_MAX}px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+    max-width: 36rem;
+  }
 `;
 
 const MainTop = styled.div`
@@ -53,14 +68,14 @@ const MainTitleStyles = styled.h1`
   margin: 0.5rem 0 1.5rem 0;
   padding: 0;
 
-  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
-    padding: 0 0 0 2rem;
+  @media screen and (max-width: ${BREAKPOINTS.MOBILE_MAX}px) {
+    margin: 0.5rem 0 1.5rem 1.5rem;
   }
 `;
 
 const MainCallToActionStyles = styled.span`
-  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
-    margin-right: 2rem;
+  @media screen and (max-width: ${BREAKPOINTS.MOBILE_MAX}px) {
+    display: none;
   }
 `;
 
