@@ -14,6 +14,7 @@ import Button from '../Button/Button';
 import { APP_BAR_TOP_HEIGHT, ONE_REM } from './constants';
 import { COLORS } from '../../../constants/colors';
 import { ROUTES } from '../../../constants/routes';
+import { BREAKPOINTS } from '../../../constants/breakpoints';
 
 interface FrameProps {
   children: React.ReactNode;
@@ -62,6 +63,10 @@ const FrameStyles = styled.div`
 const FrameMainStyles = styled.div`
   display: flex;
   height: calc(100% - ${APP_BAR_TOP_HEIGHT * ONE_REM}px);
+
+  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+    flex-direction: column;
+  }
 `;
 
 export default Frame;
