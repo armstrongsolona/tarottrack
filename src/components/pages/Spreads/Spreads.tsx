@@ -1,10 +1,15 @@
 import React from 'react';
 import Frame from '../../shared/Frame/Frame';
 import SpreadsList from './SpreadsList';
+import { ROUTES } from '../../../constants/routes';
 
 const Spreads = () => {
   return (
-    <Frame title='Spreads'>
+    <Frame
+      title='Spreads'
+      callToActionLink={ROUTES.SPREADS}
+      callToActionText='New spread'
+    >
       <SpreadsList
         data={[
           {

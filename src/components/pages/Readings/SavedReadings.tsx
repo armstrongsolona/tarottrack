@@ -1,10 +1,15 @@
 import React from 'react';
 import Frame from '../../shared/Frame/Frame';
 import SavedReadingsList from './SavedReadingsList';
+import { ROUTES } from '../../../constants/routes';
 
 const SavedReadings = () => {
   return (
-    <Frame title='Saved readings'>
+    <Frame
+      title='Saved readings'
+      callToActionLink={ROUTES.READINGS}
+      callToActionText='New reading'
+    >
       <SavedReadingsList
         data={[
           {

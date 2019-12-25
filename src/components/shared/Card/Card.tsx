@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { boxShadow } from '../../../styles/shared';
 import { COLORS } from '../../../constants/colors';
+import { BREAKPOINTS } from '../../../constants/breakpoints';
 
 interface CardProps {
   children: React.ReactNode;
@@ -27,6 +28,10 @@ export const CardStyles = styled.div`
   font-size: 1rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
+
+  @media screen and (max-width: ${BREAKPOINTS.MOBILE_MAX}px) {
+    border-radius: 0;
+  }
 `;
 
 const CardTitle = styled.h2`
