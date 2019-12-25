@@ -70,7 +70,7 @@ const LinkIcon = styled.span`
 
 const LinkText = styled.span`
   @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
-    display: none;
+    margin-left: 0.5rem;
   }
 `;
 
