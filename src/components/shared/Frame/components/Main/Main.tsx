@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { BREAKPOINTS } from '../../../../../constants/breakpoints';
 
 interface MainProps {
   children: React.ReactNode;
@@ -17,7 +18,9 @@ const Main = (props: MainProps) => {
       <MainInnerStyles>
         <MainTop>
           <MainTitleStyles>{title}</MainTitleStyles>
-          <Link to={callToActionLink}>{callToAction}</Link>
+          <MainCallToActionStyles>
+            <Link to={callToActionLink}>{callToAction}</Link>
+          </MainCallToActionStyles>
         </MainTop>
         {children}
       </MainInnerStyles>
@@ -28,6 +31,10 @@ const Main = (props: MainProps) => {
 const MainStyles = styled.main`
   padding: 1rem 2rem 0 2rem;
   width: 100%;
+
+  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+    padding: 1rem 2rem 0 0;
+  }
 `;
 
 const MainInnerStyles = styled.div`
@@ -45,6 +52,16 @@ const MainTitleStyles = styled.h1`
   font-weight: 400;
   margin: 0.5rem 0 1.5rem 0;
   padding: 0;
+
+  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+    padding: 0 0 0 2rem;
+  }
+`;
+
+const MainCallToActionStyles = styled.span`
+  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+    margin-right: 2rem;
+  }
 `;
 
 export default Main;
