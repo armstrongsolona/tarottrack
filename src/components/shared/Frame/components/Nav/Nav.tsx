@@ -38,30 +38,30 @@ const Nav = () => {
         <Link to={ROUTES.READINGS_NEW} className='Nav--New-Reading'>
           <NavLink
             icon={<FontAwesomeIcon icon={faPlus} color={COLORS.BLACK} />}
-          >
-            New reading
-          </NavLink>
+            textDesktop='New reading'
+            textTablet='New'
+          />
         </Link>
         <Link to={ROUTES.READINGS}>
           <NavLink
             icon={<FontAwesomeIcon icon={faFileAlt} color={COLORS.BLACK} />}
-          >
-            Saved readings
-          </NavLink>
+            textDesktop='Saved readings'
+            textTablet='Saved'
+          />
         </Link>
         <Link to={ROUTES.SPREADS}>
           <NavLink
             icon={<FontAwesomeIcon icon={faClone} color={COLORS.BLACK} />}
-          >
-            Spreads
-          </NavLink>
+            textDesktop='Spreads'
+            textTablet='Spreads'
+          />
         </Link>
         <Link to={ROUTES.CARDS_MEANINGS}>
           <NavLink
             icon={<FontAwesomeIcon icon={faBookOpen} color={COLORS.BLACK} />}
-          >
-            Card meanings
-          </NavLink>
+            textDesktop='Card meanings'
+            textTablet='Cards'
+          />
         </Link>
       </NavListStyles>
     </NavStyles>
@@ -73,7 +73,11 @@ const NavStyles = styled.nav`
   border-right: 1px solid ${COLORS.GREY_LIGHT};
   height: calc(100% - ${NAV_PADDING_TOP * ONE_REM}px);
 
-  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+  @media screen and (max-width: ${BREAKPOINTS.MOBILE_MAX}px) {
+    display: none;
+  }
+
+  @media screen and (min-width: ${BREAKPOINTS.TABLET_MIN}px) and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
     border-bottom: 1px solid ${COLORS.GREY_LIGHT};
     height: auto;
     width: 100%;

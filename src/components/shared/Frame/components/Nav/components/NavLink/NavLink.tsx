@@ -5,28 +5,28 @@ import { BREAKPOINTS } from '../../../../../../../constants/breakpoints';
 
 // TODO: repaint window resize
 
-interface LinkProps {
-  children: React.ReactNode;
+interface NavLinkProps {
   className?: string;
   icon: React.ReactNode;
+  textDesktop: string;
+  textTablet: string;
 }
 
-const Link = (props: LinkProps) => {
-  const { children, className, icon } = props;
+const Link = (props: NavLinkProps) => {
+  const { className, icon, textTablet, textDesktop } = props;
 
-  const markup = icon ? (
-    <LinkIconWrapper className={className}>
-      <LinkIcon>{icon}</LinkIcon>
-      <LinkText>{children}</LinkText>
-    </LinkIconWrapper>
-  ) : (
-    children
+  return (
+    <NavLinkStyles>
+      <NavLinkIconWrapper className={className}>
+        <NavLinkIcon>{icon}</NavLinkIcon>
+        <NavLinkTextTablet>{textTablet}</NavLinkTextTablet>
+        <NavLinkTextDesktop>{textDesktop}</NavLinkTextDesktop>
+      </NavLinkIconWrapper>
+    </NavLinkStyles>
   );
-
-  return <LinkStyles>{markup}</LinkStyles>;
 };
 
-const LinkStyles = styled.li`
+const NavLinkStyles = styled.li`
   background: ${COLORS.GREY_LIGHTER};
   color: ${COLORS.BLACK};
   cursor: pointer;
@@ -57,7 +57,7 @@ const LinkStyles = styled.li`
   }
 `;
 
-const LinkIcon = styled.span`
+const NavLinkIcon = styled.span`
   display: flex;
   justify-content: flex-end;
   margin-right: 0.75rem;
@@ -68,13 +68,23 @@ const LinkIcon = styled.span`
   }
 `;
 
-const LinkText = styled.span`
-  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+export const NavLinkTextTablet = styled.span`
+  @media screen and (min-width: ${BREAKPOINTS.TABLET_MIN}px) and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
     margin-left: 0.5rem;
+  }
+
+  @media screen and (min-width: ${BREAKPOINTS.DESKTOP_MIN}px) {
+    display: none;
   }
 `;
 
-const LinkIconWrapper = styled.div`
+export const NavLinkTextDesktop = styled.span`
+  @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
+    display: none;
+  }
+`;
+
+const NavLinkIconWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
