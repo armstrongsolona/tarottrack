@@ -1,11 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCoffee,
-  faHamburger,
-  faSimCard,
-} from '@fortawesome/free-solid-svg-icons';
 import AppBarTop from './components/AppBarTop/AppBarTop';
 import Nav from './components/Nav/Nav';
 import Main from './components/Main/Main';
@@ -25,12 +19,7 @@ const Frame = (props: FrameProps) => {
 
   return (
     <FrameStyles className='Frame'>
-      <AppBarTop
-        logo={<FontAwesomeIcon icon={faSimCard} />}
-        accountMenu={<FontAwesomeIcon icon={faCoffee} />}
-        mobileMenu={<FontAwesomeIcon icon={faHamburger} />}
-        username='MyTempUsername'
-      />
+      <AppBarTop />
       <FrameMainStyles className='FrameMain'>
         <Nav />
         <Main
