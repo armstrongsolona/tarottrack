@@ -47,7 +47,7 @@ const NavStyles = styled.nav`
 const NavButtonStyles = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0;
 
   @media screen and (max-width: ${BREAKPOINTS.TABLET_MAX}px) {
     display: none;
