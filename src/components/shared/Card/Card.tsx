@@ -7,15 +7,26 @@ import { BREAKPOINTS } from '../../../constants/breakpoints';
 interface CardProps {
   children: React.ReactNode;
   title?: string;
+  titleUrl?: string;
+  footer?: string;
+  footerUrl?: string;
 }
 
 const Card = (props: CardProps) => {
-  const { children, title } = props;
+  const { children, title, titleUrl, footer, footerUrl } = props;
+
+  const titleMarkup = titleUrl ? <a href={titleUrl}>{title}</a> : title;
+  const footerMarkup = footer ? (
+    <CardFooterStyles>
+      <a href={footerUrl}>{footer}</a>
+    </CardFooterStyles>
+  ) : null;
 
   return (
     <CardStyles>
-      <CardTitle>{title}</CardTitle>
+      <CardTitle>{titleMarkup}</CardTitle>
       <p>{children}</p>
+      {footerMarkup}
     </CardStyles>
   );
 };
@@ -39,12 +50,26 @@ const CardTitle = styled.h2`
   font-size: 1.1rem;
   margin: 0 0 1.5rem 0;
   padding: 0;
+
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    color: ${COLORS.BLACK};
+  }
 `;
 
 export const CardSection = styled.div`
   border-top: 1px solid ${COLORS.GREY_LIGHT};
   margin-top: 1.5rem;
   padding-top: 1.5rem;
+`;
+
+export const CardFooterStyles = styled.div`
+  display: flex;
+  font-size: 0.9rem;
+  justify-content: flex-end;
 `;
 
 export const SavedListCardStyles = styled(CardStyles)`

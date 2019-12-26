@@ -45,7 +45,7 @@ const MainStyles = styled.main`
 `;
 
 const MainInnerStyles = styled.div`
-  max-width: 40rem;
+  max-width: 48rem;
 
   @media screen and (max-width: ${BREAKPOINTS.MOBILE_MAX}px) {
     width: 100%;
