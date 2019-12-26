@@ -1,0 +1,7 @@
+export const Z_INDEX = {
+  TOOLTIP: 9990,
+  POPOVER: 9991,
+  UNDERLAY: 9997,
+  NAV_MOBILE: 9998,
+  MODAL: 9999,
+};

@@ -1,32 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import Avatar from '../../../Avatar/Avatar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSimCard } from '@fortawesome/free-solid-svg-icons';
+import NavDesktop from '../Nav/components/NavDesktop/NavDesktop';
+import NavMobile from '../Nav/components/NavMobile/NavMobile';
 import { APP_BAR_TOP_HEIGHT } from '../../constants';
 import { COLORS } from '../../../../../constants/colors';
 
-interface AppBarTopProps {
-  logo: React.ReactNode;
-  accountMenu: React.ReactNode;
-  mobileMenu: React.ReactNode;
-  userImgSrc?: string;
-  userInitials?: string;
-  username: string;
-}
-
-const AppBarTop = (props: AppBarTopProps) => {
-  const { logo, userImgSrc, userInitials, username } = props;
-
+const AppBarTop = () => {
   return (
     <AppBarTopStyles>
       <AppBarTopInnerStyles>
-        {logo}
-        <div>
-          <Avatar
-            initials={userInitials}
-            imgSrc={userImgSrc}
-            username={username}
-          />
-        </div>
+        <FontAwesomeIcon icon={faSimCard} />
+        <span>
+          <NavDesktop />
+          <NavMobile />
+        </span>
       </AppBarTopInnerStyles>
     </AppBarTopStyles>
   );
