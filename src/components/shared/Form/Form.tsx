@@ -8,22 +8,24 @@ interface FormProps {
   onSubmit(event: React.FormEvent<HTMLFormElement>): void;
 }
 
-const Form = (props: FormProps) => {
-  const { action, children, name, submitButtonText = 'Submit' } = props;
+class Form extends React.Component<FormProps, never> {
+  render() {
+    const { action, children, name, submitButtonText = 'Submit' } = this.props;
 
-  return (
-    <form action={action} name={name} onSubmit={handleSubmit}>
-      {children}
-      <button type='submit'>{submitButtonText}</button>
-    </form>
-  );
-};
+    return (
+      <form action={action} name={name} onSubmit={this.handleSubmit}>
+        {children}
+        <button type='submit'>{submitButtonText}</button>
+      </form>
+    );
+  }
 
-const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-  const { onSubmit } = this.props;
+  handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const { onSubmit } = this.props;
 
-  event.preventDefault();
-  onSubmit(event);
-};
+    event.preventDefault();
+    onSubmit(event);
+  };
+}
 
 export default Form;
