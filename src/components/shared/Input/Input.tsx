@@ -10,7 +10,7 @@ interface InputProps {
   label: string;
   labelHidden?: boolean;
   disabled?: boolean;
-  error?: boolean;
+  error: boolean;
   errorText?: string;
   helpText?: string;
   maxLength?: number;
@@ -21,6 +21,10 @@ interface InputProps {
   onChange?(value: string, id: string): void;
   onFocus?(): void;
   onBlur?(): void;
+}
+
+interface InputStylesProps {
+  readonly error: boolean;
 }
 
 export type InputType = 'text' | 'email' | 'number' | 'password' | 'tel';
@@ -60,7 +64,6 @@ class Input extends React.Component<InputProps, never> {
     const errorTextMarkup = error ? (
       <InputErrorTextStyles>{errorText}</InputErrorTextStyles>
     ) : null;
-    const borderColor = error ? COLORS.RED : COLORS.GREY_SHADOW;
 
     return (
       <>
@@ -72,7 +75,7 @@ class Input extends React.Component<InputProps, never> {
           id={id}
           name={name}
           disabled={disabled}
-          color={borderColor}
+          error={error}
           placeholder={placeholder}
           maxLength={maxLength}
           minLength={minLength}
@@ -107,9 +110,10 @@ const LabelOptional = styled.span`
   font-size: 0.8rem;
 `;
 
-const InputStyles = styled.input`
+const InputStyles = styled.input<InputStylesProps>`
   background: ${COLORS.WHITE};
-  border: 1px solid ${({ color }) => color && color};
+  border: 1px solid
+    ${(props) => (props.error ? COLORS.RED : COLORS.GREY_SHADOW)};
   border-radius: ${borderRadiusRound};
   font-size: 1rem;
   line-height: 1.3rem;

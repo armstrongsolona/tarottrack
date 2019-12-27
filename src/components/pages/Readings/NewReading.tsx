@@ -12,7 +12,29 @@ const NewReadings = () => {
   return (
     <Frame title='New reading'>
       <Form onSubmit={() => console.log('Submitted!')}>
-        <Card title='Behold my title'>
+        <Card>
+          <Input
+            type='text'
+            name='Querent'
+            label='Querent'
+            helpText='The person asking the question'
+            maxLength={50}
+            size={40} // TODO: make this dynamic
+            required
+            error={false}
+          />
+          <br />
+          <TextArea
+            name='Question'
+            label='Question'
+            errorText='Question cannot be empty'
+            rows={3}
+            cols={40}
+            maxLength={120}
+            required
+            error={false}
+          />
+          <br />
           <CheckboxGroup label='How will you draw the cards?'>
             <Flex>
               <CheckboxButton
@@ -29,25 +51,6 @@ const NewReadings = () => {
               />
             </Flex>
           </CheckboxGroup>
-          <Input
-            type='text'
-            name='Querent'
-            label='Querent'
-            helpText='The person asking the question'
-            maxLength={50}
-            size={40} // TODO: make this dynamic
-            required
-          />
-          <br />
-          <TextArea
-            name='Question'
-            label='Question'
-            errorText='Question cannot be empty'
-            rows={3}
-            cols={40}
-            maxLength={120}
-            required
-          />
         </Card>
       </Form>
     </Frame>
