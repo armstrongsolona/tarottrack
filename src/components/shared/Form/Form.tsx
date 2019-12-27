@@ -1,4 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
+import { ButtonStyles } from '../Button/Button';
 
 interface FormProps {
   action?: string;
@@ -15,7 +17,9 @@ class Form extends React.Component<FormProps, never> {
     return (
       <form action={action} name={name} onSubmit={this.handleSubmit}>
         {children}
-        <button type='submit'>{submitButtonText}</button>
+        <FormSubmitButtonStyles type='submit'>
+          {submitButtonText}
+        </FormSubmitButtonStyles>
       </form>
     );
   }
@@ -27,5 +31,7 @@ class Form extends React.Component<FormProps, never> {
     onSubmit(event);
   };
 }
+
+const FormSubmitButtonStyles = styled(ButtonStyles)``;
 
 export default Form;

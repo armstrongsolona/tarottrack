@@ -7,8 +7,8 @@ import Button from '../../../Button/Button';
 import { BREAKPOINTS } from '../../../../../constants/breakpoints';
 
 interface MainProps {
-  callToActionLink: string;
-  callToActionText: string;
+  callToActionLink?: string;
+  callToActionText?: string;
   children: React.ReactNode;
   title: string;
 }
@@ -16,18 +16,23 @@ interface MainProps {
 const Main = (props: MainProps) => {
   const { children, callToActionLink, callToActionText, title } = props;
 
+  const callToActionMarkup =
+    callToActionText && callToActionLink ? (
+      <MainCallToActionStyles>
+        <Link to={callToActionLink}>
+          <Button type='secondary' icon={<FontAwesomeIcon icon={faPlus} />}>
+            {callToActionText}
+          </Button>
+        </Link>
+      </MainCallToActionStyles>
+    ) : null;
+
   return (
     <MainStyles>
       <MainInnerStyles>
         <MainTop>
           <MainTitleStyles>{title}</MainTitleStyles>
-          <MainCallToActionStyles>
-            <Link to={callToActionLink}>
-              <Button type='secondary' icon={<FontAwesomeIcon icon={faPlus} />}>
-                {callToActionText}
-              </Button>
-            </Link>
-          </MainCallToActionStyles>
+          {callToActionMarkup}
         </MainTop>
         {children}
       </MainInnerStyles>

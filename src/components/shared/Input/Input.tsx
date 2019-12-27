@@ -1,0 +1,135 @@
+import React from 'react';
+import styled from 'styled-components';
+import { borderRadiusRound } from '../../../styles/shared';
+import { COLORS } from '../../../constants/colors';
+
+interface InputProps {
+  type: InputType;
+  name: string;
+  id?: string;
+  label: string;
+  labelHidden?: boolean;
+  disabled?: boolean;
+  error?: boolean;
+  errorText?: string;
+  helpText?: string;
+  maxLength?: number;
+  minLength?: number;
+  required?: boolean;
+  size?: number;
+  placeholder?: string;
+  onChange?(value: string, id: string): void;
+  onFocus?(): void;
+  onBlur?(): void;
+}
+
+export type InputType = 'text' | 'email' | 'number' | 'password' | 'tel';
+
+class Input extends React.Component<InputProps, never> {
+  render() {
+    const {
+      type,
+      id,
+      name,
+      label,
+      labelHidden,
+      disabled,
+      error,
+      errorText,
+      helpText,
+      maxLength,
+      minLength,
+      required,
+      size,
+      placeholder,
+    } = this.props;
+
+    const labelOptional = !required && (
+      <LabelOptional> (optional)</LabelOptional>
+    );
+
+    const labelMarkup = labelHidden ? (
+      <InputLabel className='InputLabel--Visually-Hidden'>{label}</InputLabel>
+    ) : (
+      <InputLabel>{label}</InputLabel>
+    );
+
+    const helpTextMarkup = error ? null : (
+      <InputHelpTextStyles>{helpText}</InputHelpTextStyles>
+    );
+    const errorTextMarkup = error ? (
+      <InputErrorTextStyles>{errorText}</InputErrorTextStyles>
+    ) : null;
+    const borderColor = error ? COLORS.RED : COLORS.GREY_SHADOW;
+
+    return (
+      <>
+        {labelMarkup}
+        {labelOptional}
+        <br />
+        <InputStyles
+          type={type}
+          id={id}
+          name={name}
+          disabled={disabled}
+          color={borderColor}
+          placeholder={placeholder}
+          maxLength={maxLength}
+          minLength={minLength}
+          required={required}
+          size={size}
+        />
+        <br />
+        {helpTextMarkup}
+        {errorTextMarkup}
+      </>
+    );
+  }
+}
+
+const InputLabel = styled.label`
+  line-height: 2rem;
+
+  &.InputLabel--Visually-Hidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+`;
+
+const LabelOptional = styled.span`
+  color: ${COLORS.GREY_MEDIUM};
+  font-size: 0.8rem;
+`;
+
+const InputStyles = styled.input`
+  background: ${COLORS.WHITE};
+  border: 1px solid ${({ color }) => color && color};
+  border-radius: ${borderRadiusRound};
+  font-size: 1rem;
+  line-height: 1.3rem;
+  padding: 0.5rem 0.75rem;
+
+  &.Input--Error {
+    border-bottom: 2px solid ${COLORS.BLUE_OCEAN_DARK};
+  }
+`;
+
+const InputErrorTextStyles = styled.div`
+  color: ${COLORS.RED};
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+`;
+
+const InputHelpTextStyles = styled.div`
+  color: ${COLORS.GREY_MEDIUM};
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+`;
+
+export default Input;

@@ -13,6 +13,7 @@ export enum COLORS {
   GREY_MAIN = '#FAFAFA',
   GREY_SHADOW = '#CCCCCC',
   GREY_TOP_BAR = '#F4F4F4',
+  RED = '#C00A00',
   WHITE = '#FFFFFF',
 }
 
