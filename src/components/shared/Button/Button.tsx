@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { boxShadow, boxShadowInset } from '../../../styles/shared';
+import {
+  borderRadiusRound,
+  boxShadow,
+  boxShadowInset,
+} from '../../../styles/shared';
 import { COLORS } from '../../../constants/colors';
 
 interface ButtonProps {
@@ -40,9 +44,9 @@ const Button = (props: ButtonProps) => {
   );
 };
 
-const ButtonStyles = styled.button`
+export const ButtonStyles = styled.button`
   border: none;
-  border-radius: 0.75rem;
+  border-radius: ${borderRadiusRound};
   box-shadow: ${boxShadow};
   cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   font-size: 1rem;

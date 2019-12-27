@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Cell from './components/Cell';
 import HeaderCell from './components/HeaderCell';
-import { boxShadow } from '../../../styles/shared';
+import { borderRadiusCorner, boxShadow } from '../../../styles/shared';
 import { COLORS } from '../../../constants/colors';
 
 interface DataTableProps {
@@ -69,7 +69,7 @@ const DataTableStyles = styled.table`
   background: ${COLORS.WHITE};
   border: 1px solid ${COLORS.GREY_LIGHT};
   border-collapse: collapse;
-  border-radius: 0.25rem;
+  border-radius: ${borderRadiusCorner};
   box-shadow: ${boxShadow};
   color: ${COLORS.BLACK};
   font-size: 0.9rem;

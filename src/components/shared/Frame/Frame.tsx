@@ -8,8 +8,8 @@ import { COLORS } from '../../../constants/colors';
 import { BREAKPOINTS } from '../../../constants/breakpoints';
 
 interface FrameProps {
-  callToActionText: string;
-  callToActionLink: string;
+  callToActionText?: string;
+  callToActionLink?: string;
   children: React.ReactNode;
   title: string;
 }

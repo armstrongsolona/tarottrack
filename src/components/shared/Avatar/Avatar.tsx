@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { borderRadiusCircle } from '../../../styles/shared';
 import { COLORS } from '../../../constants/colors';
 
 interface AvatarProps {
@@ -27,20 +28,20 @@ const Avatar = (props: AvatarProps) => {
 };
 
 const AvatarStyles = styled.span`
-  border-radius: 50%;
+  border-radius: ${borderRadiusCircle};
   cursor: pointer;
   height: 2rem;
   width: 2rem;
 `;
 
 const AvatarImageStyles = styled.img`
-  border-radius: 50%;
+  border-radius: ${borderRadiusCircle};
 `;
 
 const AvatarInitialsStyles = styled.span`
   align-items: center;
   border: 2px solid ${COLORS.GREY_DARK};
-  border-radius: 50%;
+  border-radius: ${borderRadiusCircle};
   display: flex;
   height: 2rem;
   width: 2rem;

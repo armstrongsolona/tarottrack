@@ -9,6 +9,7 @@ import {
   faQuestionCircle,
   faUserFriends,
 } from '@fortawesome/free-solid-svg-icons';
+import { borderRadiusTag } from '../../../styles/shared';
 import { COLORS, TAG_COLORS } from '../../../constants/colors';
 
 interface TagProps {
@@ -54,7 +55,7 @@ const Tag = (props: TagProps) => {
 const TagStyles = styled.button`
   align-items: center;
   background: ${({ color }) => color};
-  border-radius: 3rem;
+  border-radius: ${borderRadiusTag};
   border: none;
   color: ${COLORS.GREY_DARK}
   display: flex;

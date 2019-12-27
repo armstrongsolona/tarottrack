@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { boxShadow } from '../../../styles/shared';
+import { borderRadiusCorner, boxShadow } from '../../../styles/shared';
 import { COLORS } from '../../../constants/colors';
 import { BREAKPOINTS } from '../../../constants/breakpoints';
 
@@ -33,7 +33,7 @@ const Card = (props: CardProps) => {
 
 export const CardStyles = styled.div`
   background: ${COLORS.WHITE};
-  border-radius: 0.25rem;
+  border-radius: ${borderRadiusCorner};
   box-shadow: ${boxShadow};
   color: ${COLORS.BLACK};
   font-size: 1rem;
