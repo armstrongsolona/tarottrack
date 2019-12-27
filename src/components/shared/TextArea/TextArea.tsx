@@ -9,7 +9,7 @@ interface TextAreaProps {
   label: string;
   labelHidden?: boolean;
   disabled?: boolean;
-  error?: boolean;
+  error: boolean;
   errorText?: string;
   helpText?: string;
   maxLength?: number;
@@ -21,6 +21,10 @@ interface TextAreaProps {
   onChange?(value: string, id: string): void;
   onFocus?(): void;
   onBlur?(): void;
+}
+
+interface TextAreaStylesProps {
+  readonly error: boolean;
 }
 
 class TextArea extends React.Component<TextAreaProps, never> {
@@ -60,7 +64,6 @@ class TextArea extends React.Component<TextAreaProps, never> {
     const errorTextMarkup = error ? (
       <TextAreaErrorTextStyles>{errorText}</TextAreaErrorTextStyles>
     ) : null;
-    const borderColor = error ? COLORS.RED : COLORS.GREY_SHADOW;
 
     return (
       <>
@@ -71,7 +74,7 @@ class TextArea extends React.Component<TextAreaProps, never> {
           id={id}
           name={name}
           disabled={disabled}
-          color={borderColor}
+          error={error}
           placeholder={placeholder}
           maxLength={maxLength}
           minLength={minLength}
@@ -107,9 +110,10 @@ const LabelOptional = styled.span`
   font-size: 0.8rem;
 `;
 
-const TextAreaStyles = styled.textarea`
+const TextAreaStyles = styled.textarea<TextAreaStylesProps>`
   background: ${COLORS.WHITE};
-  border: 1px solid ${({ color }) => color && color};
+  border: 1px solid
+    ${(props) => (props.error ? COLORS.RED : COLORS.GREY_SHADOW)};
   border-radius: ${borderRadiusRound};
   font-size: 1rem;
   line-height: 1.3rem;

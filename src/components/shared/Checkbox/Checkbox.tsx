@@ -10,10 +10,14 @@ interface CheckboxProps {
   label: string;
   checked?: boolean;
   disabled?: boolean;
-  error?: boolean;
+  error: boolean;
   onChange?(value: string, id: string): void;
   onFocus?(): void;
   onBlur?(): void;
+}
+
+interface CheckboxStylesProps {
+  readonly error: boolean;
 }
 
 class Checkbox extends React.Component<CheckboxProps, never> {
@@ -24,7 +28,7 @@ class Checkbox extends React.Component<CheckboxProps, never> {
 
     return (
       <CheckboxWrapperStyles>
-        <CheckboxFakeStyles color={borderColor}>
+        <CheckboxFakeStyles color={borderColor} error={error}>
           <CheckboxStyles
             type='checkbox'
             id={id}
@@ -45,9 +49,10 @@ const CheckboxWrapperStyles = styled.div`
   margin: 0 1.5rem 0.5rem 0;
 `;
 
-const CheckboxFakeStyles = styled.span`
+const CheckboxFakeStyles = styled.span<CheckboxStylesProps>`
   background: ${COLORS.WHITE};
-  border: 1px solid ${({ color }) => color && color};
+  border: 1px solid
+    ${(props) => (props.error ? COLORS.RED : COLORS.GREY_SHADOW)};
   border-radius: ${borderRadiusRound};
   margin: 0 0.5rem 0 0;
   position: relative;
