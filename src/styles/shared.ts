@@ -6,4 +6,6 @@ export const borderRadiusRound = () => '1rem';
 export const borderRadiusTag = () => '3rem';
 
 export const boxShadow = () => `1px 1px 3px ${COLORS.GREY_SHADOW}`;
-export const boxShadowInset = () => `inset 1px 1px 4px ${COLORS.BLACK}`;
+export const boxShadowInset = () => `inset 1px 1px 2px ${COLORS.GREY_SHADOW}`;
+export const boxShadowInsetPressed = () =>
+  `inset 2px 2px 2px ${COLORS.GREY_DARK}`;
