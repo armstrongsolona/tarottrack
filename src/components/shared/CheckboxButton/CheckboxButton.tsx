@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ButtonStyles } from '../Button/Button';
-import { boxShadowInset } from '../../../styles/shared';
+import { boxShadowInsetPressed } from '../../../styles/shared';
 import { COLORS } from '../../../constants/colors';
 
 interface CheckboxButtonProps {
@@ -45,7 +45,9 @@ const CheckboxButtonStyles = styled(ButtonStyles)<CheckboxButtonStylesProps>`
   background: ${(props) =>
     props['aria-checked'] ? COLORS.GREY_LIGHT : COLORS.WHITE};
   border: 1px solid ${COLORS.GREY_SHADOW};
-  box-shadow: ${(props) => (props['aria-checked'] ? boxShadowInset : 'none')};
+  box-shadow: ${(props) =>
+    props['aria-checked'] ? boxShadowInsetPressed : 'none'};
+  ${(props) => (props['aria-checked'] ? 'text-shadow: 1px 1px #fff' : null)};
   font-weight: 400;
   font-size: 1rem;
   margin: 0 0.5rem 0 0;
