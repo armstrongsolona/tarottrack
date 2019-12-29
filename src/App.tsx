@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Home from './components/pages/Home/Home';
-import SavedReadings from './components/pages/Readings/SavedReadings';
-import NewReading from './components/pages/Readings/NewReading';
-import Spreads from './components/pages/Spreads/Spreads';
-import CardMeanings from './components/pages/Cards/CardMeanings';
+import Home from './pages/Home/Home';
+import SavedReadings from './pages/Readings/SavedReadings';
+import NewReading from './pages/Readings/NewReading';
+import Spreads from './pages/Spreads/Spreads';
+import CardMeanings from './pages/Cards/CardMeanings';
 import { ROUTES } from './constants/routes';
 import './App.css';
 

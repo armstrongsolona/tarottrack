@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Tag, { TagType } from '../../shared/Tag/Tag';
-import { SavedListCardStyles } from '../../shared/Card/Card';
-import { COLORS } from '../../../constants/colors';
+import Tag, { TagType } from '../../components/shared/Tag/Tag';
+import { SavedListCardStyles } from '../../components/shared/Card/Card';
+import { COLORS } from '../../constants/colors';
 
 export type SavedReadingsQuerentObject = {
   name: string;

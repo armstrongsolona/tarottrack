@@ -1,7 +1,7 @@
 import React from 'react';
-import Frame from '../../shared/Frame/Frame';
+import Frame from '../../components/shared/Frame/Frame';
 import SpreadsList from './SpreadsList';
-import { ROUTES } from '../../../constants/routes';
+import { ROUTES } from '../../constants/routes';
 
 const Spreads = () => {
   return (

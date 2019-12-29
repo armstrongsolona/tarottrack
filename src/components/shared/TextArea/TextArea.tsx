@@ -18,7 +18,8 @@ interface TextAreaProps {
   cols?: number;
   required?: boolean;
   placeholder?: string;
-  onChange?(value: string, id: string): void;
+  value: string;
+  onChange(value: string): void;
   onFocus?(): void;
   onBlur?(): void;
 }
@@ -44,6 +45,7 @@ class TextArea extends React.Component<TextAreaProps, never> {
       cols,
       required,
       placeholder,
+      value,
     } = this.props;
 
     const labelOptional = !required && (
@@ -81,6 +83,8 @@ class TextArea extends React.Component<TextAreaProps, never> {
           cols={cols}
           rows={rows}
           required={required}
+          value={value}
+          onChange={this.handleChange}
         />
         <br />
         {helpTextMarkup}
@@ -88,6 +92,12 @@ class TextArea extends React.Component<TextAreaProps, never> {
       </>
     );
   }
+
+  handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { onChange } = this.props;
+
+    return onChange(event.currentTarget.value);
+  };
 }
 
 const TextAreaLabel = styled.label`

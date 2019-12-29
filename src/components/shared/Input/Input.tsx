@@ -18,7 +18,8 @@ interface InputProps {
   required?: boolean;
   size?: number;
   placeholder?: string;
-  onChange?(value: string, id: string): void;
+  value: string;
+  onChange(value: string): void;
   onFocus?(): void;
   onBlur?(): void;
 }
@@ -46,6 +47,7 @@ class Input extends React.Component<InputProps, never> {
       required,
       size,
       placeholder,
+      value,
     } = this.props;
 
     const labelOptional = !required && (
@@ -81,6 +83,8 @@ class Input extends React.Component<InputProps, never> {
           minLength={minLength}
           required={required}
           size={size}
+          value={value}
+          onChange={this.handleChange}
         />
         <br />
         {helpTextMarkup}
@@ -88,6 +92,12 @@ class Input extends React.Component<InputProps, never> {
       </>
     );
   }
+
+  handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { onChange } = this.props;
+
+    return onChange(event.currentTarget.value);
+  };
 }
 
 const InputLabel = styled.label`

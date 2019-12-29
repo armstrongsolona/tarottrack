@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClone } from '@fortawesome/free-solid-svg-icons';
-import { SavedListCardStyles } from '../../shared/Card/Card';
-import { COLORS } from '../../../constants/colors';
+import { SavedListCardStyles } from '../../components/shared/Card/Card';
+import { COLORS } from '../../constants/colors';
 
 export type SpreadsObject = {
   author: string;

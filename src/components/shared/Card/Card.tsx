@@ -25,7 +25,7 @@ const Card = (props: CardProps) => {
   return (
     <CardStyles>
       <CardTitle>{titleMarkup}</CardTitle>
-      <p>{children}</p>
+      {children}
       {footerMarkup}
     </CardStyles>
   );
