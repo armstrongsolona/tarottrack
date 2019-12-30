@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SpreadsObject } from '../../Spreads/SpreadsList';
-import Card from '../../../shared/Card/Card';
-import { COLORS } from '../../../../constants/colors';
-import { ROUTES } from '../../../../constants/routes';
+import Card from '../../../components/shared/Card/Card';
+import { COLORS } from '../../../constants/colors';
+import { ROUTES } from '../../../constants/routes';
 
 interface HomeCardSpreadsProps {
   data: SpreadsObject[];

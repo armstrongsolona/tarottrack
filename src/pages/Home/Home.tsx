@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Frame from '../../shared/Frame/Frame';
+import Frame from '../../components/shared/Frame/Frame';
 import HomeCardSavedReadings from './components/HomeCardSavedReadings';
 import HomeCardSpreads from './components/HomeCardSpreads';
-import { ROUTES } from '../../../constants/routes';
+import { ROUTES } from '../../constants/routes';
 
 const SavedReadings = () => {
   return (

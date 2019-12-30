@@ -1,7 +1,7 @@
 import React from 'react';
-import Frame from '../../shared/Frame/Frame';
-import Card from '../../shared/Card/Card';
-import { ROUTES } from '../../../constants/routes';
+import Frame from '../../components/shared/Frame/Frame';
+import Card from '../../components/shared/Card/Card';
+import { ROUTES } from '../../constants/routes';
 
 const CardMeanings = () => {
   return (
