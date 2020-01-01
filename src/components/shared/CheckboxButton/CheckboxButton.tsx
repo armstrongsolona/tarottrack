@@ -6,13 +6,12 @@ import { COLORS } from '../../../constants/colors';
 
 interface CheckboxButtonProps {
   name: string;
-  id?: string;
-  value: string;
+  id: string;
   label: string;
   checked: boolean;
   disabled?: boolean;
   error?: boolean;
-  onChange?(value: string, id: string): void;
+  onMouseDown(value: string): void;
   onFocus?(): void;
   onBlur?(): void;
 }
@@ -23,7 +22,8 @@ interface CheckboxButtonStylesProps {
 
 class CheckboxButton extends React.Component<CheckboxButtonProps, never> {
   render() {
-    const { id, name, value, label, checked, disabled } = this.props;
+    const { id, name, label, checked, disabled } = this.props;
+    console.log('checked', `${id} ${checked}`);
 
     return (
       <CheckboxButtonStyles
@@ -31,14 +31,20 @@ class CheckboxButton extends React.Component<CheckboxButtonProps, never> {
         aria-checked={checked}
         id={id}
         name={name}
-        value={value}
         disabled={disabled}
         checked={checked}
+        onMouseDown={this.handleClick}
       >
         {label}
       </CheckboxButtonStyles>
     );
   }
+
+  handleClick = () => {
+    const { onMouseDown, id } = this.props;
+
+    return onMouseDown(id);
+  };
 }
 
 const CheckboxButtonStyles = styled(ButtonStyles)<CheckboxButtonStylesProps>`
@@ -52,6 +58,11 @@ const CheckboxButtonStyles = styled(ButtonStyles)<CheckboxButtonStylesProps>`
   font-size: 1rem;
   margin: 0 0.5rem 0 0;
   padding: 0.75rem 1rem;
+
+  &:active {
+    box-shadow: ${(props) =>
+      props['aria-checked'] ? boxShadowInsetPressed : 'none'};
+  }
 
   &.CheckboxButton--Error {
     border-bottom: 2px solid ${COLORS.BLUE_OCEAN_DARK};

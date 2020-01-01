@@ -17,12 +17,26 @@ import {
   updateTopic,
   updateCardsDrawn,
 } from './redux/actions';
-import { getNewReadingState } from './redux/selectors';
-import { Reading, NewReadingState, DrawMethod } from './redux/types';
+import {
+  getNewReadingQuerent,
+  getNewReadingQuestion,
+  getNewReadingDrawMethod,
+  getNewReadingTimestamp,
+  getNewReadingSpreadUUID,
+  getNewReadingTopic,
+  getNewReadingCardsDrawn,
+} from './redux/selectors';
+import { ReadingState, DrawMethod } from './redux/types';
 import { Topic } from '../Spreads/redux/types';
 
 interface NewReadingProps {
-  newReading: Reading;
+  querent: string;
+  question: string;
+  drawMethod: DrawMethod;
+  timestamp: Date;
+  spreadUUID: number;
+  topic: Topic;
+  cardsDrawn: number[];
   onUpdateQuerent: any;
   onUpdateQuestion: any;
   onUpdateDrawMethod: any;
@@ -34,7 +48,15 @@ interface NewReadingProps {
 
 class NewReading extends React.Component<NewReadingProps, never> {
   render() {
-    const { newReading, onUpdateQuerent } = this.props;
+    const {
+      querent,
+      question,
+      drawMethod,
+      timestamp,
+      spreadUUID,
+      topic,
+      cardsDrawn,
+    } = this.props;
 
     return (
       <Frame title='New reading'>
@@ -49,7 +71,7 @@ class NewReading extends React.Component<NewReadingProps, never> {
               size={40} // TODO: make this dynamic
               required
               error={false}
-              value={newReading.querent}
+              value={querent}
               onChange={this.handleUpdateQuerent}
             />
             <br />
@@ -62,7 +84,7 @@ class NewReading extends React.Component<NewReadingProps, never> {
               maxLength={120}
               required
               error={false}
-              value={newReading.question}
+              value={question}
               onChange={this.handleUpdateQuestion}
             />
             <br />
@@ -71,14 +93,16 @@ class NewReading extends React.Component<NewReadingProps, never> {
                 <CheckboxButton
                   name='drawMethod'
                   label='Use my own deck'
-                  value='deck'
-                  checked
+                  id='deck'
+                  checked={drawMethod === 'deck'}
+                  onMouseDown={this.handleUpdateDrawMethod}
                 />
                 <CheckboxButton
                   name='drawMethod'
                   label='Use the digital deck'
-                  value='digital'
-                  checked={false}
+                  id='digital'
+                  checked={drawMethod === 'digital'}
+                  onMouseDown={this.handleUpdateDrawMethod}
                 />
               </Flex>
             </CheckboxGroup>
@@ -124,8 +148,14 @@ class NewReading extends React.Component<NewReadingProps, never> {
   };
 }
 
-const mapStateToProps = (state: NewReadingState) => ({
-  newReading: getNewReadingState(state),
+const mapStateToProps = (state: ReadingState) => ({
+  querent: getNewReadingQuerent(state),
+  question: getNewReadingQuestion(state),
+  drawMethod: getNewReadingDrawMethod(state),
+  timestamp: getNewReadingTimestamp(state),
+  spreadUUID: getNewReadingSpreadUUID(state),
+  topic: getNewReadingTopic(state),
+  cardsDrawn: getNewReadingCardsDrawn(state),
 });
 
 const mapDispatchToProps = {
