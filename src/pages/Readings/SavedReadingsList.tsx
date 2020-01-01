@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Tag, { TagType } from '../../components/shared/Tag/Tag';
+import Tag from '../../components/shared/Tag/Tag';
+import { Topic } from '../Spreads/redux/types';
 import { SavedListCardStyles } from '../../components/shared/Card/Card';
 import { COLORS } from '../../constants/colors';
 
@@ -24,7 +25,7 @@ export type SavedReadingsObject = {
   querent: SavedReadingsQuerentObject;
   question: SavedReadingsQuestionObject;
   spread: SavedReadingsSpreadObject;
-  topic: TagType;
+  topic: Topic;
 };
 
 interface SavedReadingsListProps {

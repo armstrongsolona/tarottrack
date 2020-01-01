@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import { newReadingReducer } from '../../pages/Readings/redux/reducers';
+import { newReading } from '../../pages/Readings/redux/reducers';
 
 export const rootReducer = combineReducers({
-  readings: newReadingReducer,
+  newReading,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

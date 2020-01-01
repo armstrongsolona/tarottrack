@@ -8,42 +8,33 @@ import Input from '../../components/shared/Input/Input';
 import TextArea from '../../components/shared/TextArea/TextArea';
 import CheckboxGroup from '../../components/shared/Checkbox/CheckboxGroup';
 import CheckboxButton from '../../components/shared/CheckboxButton/CheckboxButton';
-import { saveNewReading, Reading } from './redux/actions';
+import {
+  updateQuerent,
+  updateQuestion,
+  updateDrawMethod,
+  updateTimestamp,
+  updateSpreadUUID,
+  updateTopic,
+  updateCardsDrawn,
+} from './redux/actions';
+import { getNewReadingState } from './redux/selectors';
+import { Reading, NewReadingState, DrawMethod } from './redux/types';
+import { Topic } from '../Spreads/redux/types';
 
 interface NewReadingProps {
-  readings: Reading[];
-  onUpdateNewReading: any;
+  newReading: Reading;
+  onUpdateQuerent: any;
+  onUpdateQuestion: any;
+  onUpdateDrawMethod: any;
+  onUpdateTimestamp: any;
+  onUpdateSpreadUUID: any;
+  onUpdateTopic: any;
+  onUpdateCardsDrawn: any;
 }
 
-interface NewReadingState {
-  querentValue: string;
-  questionValue: string;
-  drawMethodValue: string;
-  spread: string;
-  timestamp: Date;
-  topic: string;
-}
-
-class NewReading extends React.Component<NewReadingProps, NewReadingState> {
-  state: NewReadingState = {
-    querentValue: '',
-    questionValue: '',
-    drawMethodValue: '',
-    spread: '',
-    timestamp: new Date(),
-    topic: '',
-  };
-
+class NewReading extends React.Component<NewReadingProps, never> {
   render() {
-    const { readings, onUpdateNewReading } = this.props;
-    const {
-      querentValue,
-      questionValue,
-      drawMethodValue,
-      spread,
-      timestamp,
-      topic,
-    } = this.state;
+    const { newReading, onUpdateQuerent } = this.props;
 
     return (
       <Frame title='New reading'>
@@ -58,8 +49,8 @@ class NewReading extends React.Component<NewReadingProps, NewReadingState> {
               size={40} // TODO: make this dynamic
               required
               error={false}
-              value={querentValue}
-              onChange={this.handleOnChangeQuerentValue}
+              value={newReading.querent}
+              onChange={this.handleUpdateQuerent}
             />
             <br />
             <TextArea
@@ -71,8 +62,8 @@ class NewReading extends React.Component<NewReadingProps, NewReadingState> {
               maxLength={120}
               required
               error={false}
-              value={questionValue}
-              onChange={this.handleOnChangeQuestionValue}
+              value={newReading.question}
+              onChange={this.handleUpdateQuestion}
             />
             <br />
             <CheckboxGroup label='How will you draw the cards?'>
@@ -86,7 +77,7 @@ class NewReading extends React.Component<NewReadingProps, NewReadingState> {
                 <CheckboxButton
                   name='drawMethod'
                   label='Use the digital deck'
-                  value='ditigal'
+                  value='digital'
                   checked={false}
                 />
               </Flex>
@@ -97,17 +88,54 @@ class NewReading extends React.Component<NewReadingProps, NewReadingState> {
     );
   }
 
-  handleOnChangeQuerentValue = (value: string) => {
-    this.setState({ querentValue: value });
+  handleUpdateQuerent = (value: string) => {
+    const { onUpdateQuerent } = this.props;
+    return onUpdateQuerent(value);
   };
 
-  handleOnChangeQuestionValue = (value: string) => {
-    this.setState({ questionValue: value });
+  handleUpdateQuestion = (value: string) => {
+    const { onUpdateQuestion } = this.props;
+    return onUpdateQuestion(value);
+  };
+
+  handleUpdateDrawMethod = (value: DrawMethod) => {
+    const { onUpdateDrawMethod } = this.props;
+    return onUpdateDrawMethod(value);
+  };
+
+  handleUpdateTimestamp = (value: Date) => {
+    const { onUpdateTimestamp } = this.props;
+    return onUpdateTimestamp(value);
+  };
+
+  handleUpdateSpreadUUID = (value: number) => {
+    const { onUpdateSpreadUUID } = this.props;
+    return onUpdateSpreadUUID(value);
+  };
+
+  handleUpdateTopic = (value: Topic) => {
+    const { onUpdateTopic } = this.props;
+    return onUpdateTopic(value);
+  };
+
+  handleUpdateCardsDrawn = (value: number) => {
+    const { onUpdateCardsDrawn } = this.props;
+    return onUpdateCardsDrawn(value);
   };
 }
 
+const mapStateToProps = (state: NewReadingState) => ({
+  newReading: getNewReadingState(state),
+});
+
 const mapDispatchToProps = {
-  onUpdateNewReading: saveNewReading,
+  onUpdateQuerent: updateQuerent,
+  onUpdateQuestion: updateQuestion,
+  onUpdateDrawMethod: updateDrawMethod,
+  onUpdateTimestamp: updateTimestamp,
+  onUpdateSpreadUUID: updateSpreadUUID,
+  onUpdateTopic: updateTopic,
+  onUpdateCardsDrawn: updateCardsDrawn,
 };
 
-export default connect(null, mapDispatchToProps)(NewReading);
+export default connect(mapStateToProps, mapDispatchToProps)(NewReading);
