@@ -11,18 +11,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { borderRadiusTag } from '../../../styles/shared';
 import { COLORS, TAG_COLORS } from '../../../constants/colors';
+import { Topic } from '../../../pages/Spreads/redux/types';
 
 interface TagProps {
-  type: TagType;
+  type: Topic;
 }
-
-export type TagType =
-  | 'general'
-  | 'health'
-  | 'home'
-  | 'love'
-  | 'money'
-  | 'relationships';
 
 export const TAG_COLOR = {
   general: TAG_COLORS.GREY,

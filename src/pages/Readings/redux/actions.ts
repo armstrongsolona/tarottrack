@@ -1,28 +1,51 @@
-export const SAVE_NEW_READING = 'READINGS__SAVE_NEW_READING';
+import { DrawMethod, NewReadingTypes, READINGS_ACTIONS } from './types';
+import { Topic } from '../../Spreads/redux/types';
 
-export interface Reading {
-  querentValue: string;
-  questionValue: string;
-  drawMethodValue: string;
-  spread: string; // TODO: Create Spread interface
-  timestamp: Date;
-  topic: string; // TODO: Create Topic (category) interface
-}
-
-export interface ReadingsState {
-  readings: Reading[];
-}
-
-export interface SaveNewReadingAction {
-  type: typeof SAVE_NEW_READING;
-  payload: Reading;
-}
-
-export type ReadingsTypes = SaveNewReadingAction;
-
-export const saveNewReading = (newReading: Reading): ReadingsTypes => {
+export const updateQuerent = (payload: string): NewReadingTypes => {
   return {
-    type: SAVE_NEW_READING,
-    payload: newReading,
+    type: READINGS_ACTIONS.UPDATE_QUERENT,
+    payload: payload,
+  };
+};
+
+export const updateQuestion = (payload: string): NewReadingTypes => {
+  return {
+    type: READINGS_ACTIONS.UPDATE_QUESTION,
+    payload: payload,
+  };
+};
+
+export const updateDrawMethod = (payload: DrawMethod): NewReadingTypes => {
+  return {
+    type: READINGS_ACTIONS.UPDATE_DRAW_METHOD,
+    payload: payload,
+  };
+};
+
+export const updateTimestamp = (payload: Date): NewReadingTypes => {
+  return {
+    type: READINGS_ACTIONS.UPDATE_TIMESTAMP,
+    payload: payload,
+  };
+};
+
+export const updateSpreadUUID = (payload: number): NewReadingTypes => {
+  return {
+    type: READINGS_ACTIONS.UPDATE_SPREAD_UUID,
+    payload: payload,
+  };
+};
+
+export const updateTopic = (payload: Topic): NewReadingTypes => {
+  return {
+    type: READINGS_ACTIONS.UPDATE_TOPIC,
+    payload: payload,
+  };
+};
+
+export const updateCardsDrawn = (payload: number[]): NewReadingTypes => {
+  return {
+    type: READINGS_ACTIONS.UPDATE_CARDS_DRAWN,
+    payload: payload,
   };
 };
