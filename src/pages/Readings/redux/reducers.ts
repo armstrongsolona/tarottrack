@@ -1,7 +1,6 @@
-import { createReducer } from 'redux-create-reducer';
-import { NewReadingState, READINGS_ACTIONS } from './types';
+import { ReadingState, READINGS_ACTIONS } from './types';
 
-const INITIAL_STATE: NewReadingState = {
+const INITIAL_STATE: ReadingState = {
   querent: '',
   question: '',
   drawMethod: 'deck',
@@ -14,9 +13,12 @@ const INITIAL_STATE: NewReadingState = {
 export const newReading = (
   state = INITIAL_STATE,
   action: any,
-): NewReadingState => {
+): ReadingState => {
   switch (action.type) {
     case READINGS_ACTIONS.UPDATE_QUERENT:
+      return Object.assign({}, state, {
+        querent: action.payload,
+      });
       return {
         querent: action.payload,
         question: state.question,
@@ -98,14 +100,4 @@ export const newReading = (
   }
 };
 
-const handlers: any = {
-  [READINGS_ACTIONS.UPDATE_QUERENT]: newReading,
-  [READINGS_ACTIONS.UPDATE_QUESTION]: newReading,
-  [READINGS_ACTIONS.UPDATE_DRAW_METHOD]: newReading,
-  [READINGS_ACTIONS.UPDATE_TIMESTAMP]: newReading,
-  [READINGS_ACTIONS.UPDATE_SPREAD_UUID]: newReading,
-  [READINGS_ACTIONS.UPDATE_TOPIC]: newReading,
-  [READINGS_ACTIONS.UPDATE_CARDS_DRAWN]: newReading,
-};
-
-export default createReducer(INITIAL_STATE, handlers);
+export default newReading;

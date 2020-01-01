@@ -30,7 +30,6 @@
     "react-scripts": "3.3.0",
     "react-transition-group": "^4.3.0",
     "redux": "^4.0.4",
-    "redux-create-reducer": "^2.0.0",
     "styled-components": "^4.4.1",
     "typescript": "~3.7.2",
     "yarn": "^1.21.1"

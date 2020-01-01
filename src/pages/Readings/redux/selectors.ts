@@ -1,33 +1,33 @@
-import { NewReadingState } from './types';
+import { ReadingState } from './types';
 
-export const getNewReadingState = (state: NewReadingState) => {
+export const getNewReadingState = (state: ReadingState) => {
   return state;
 };
 
-export const getNewReadingQuerent = (state: NewReadingState) => {
+export const getNewReadingQuerent = (state: ReadingState) => {
   return getNewReadingState(state).querent;
 };
 
-export const getNewReadingQuestion = (state: NewReadingState) => {
+export const getNewReadingQuestion = (state: ReadingState) => {
   return getNewReadingState(state).question;
 };
 
-export const getNewReadingDrawMethod = (state: NewReadingState) => {
+export const getNewReadingDrawMethod = (state: ReadingState) => {
   return getNewReadingState(state).drawMethod;
 };
 
-export const getNewReadingTimestamp = (state: NewReadingState) => {
+export const getNewReadingTimestamp = (state: ReadingState) => {
   return getNewReadingState(state).timestamp;
 };
 
-export const getNewReadingSpreadUUID = (state: NewReadingState) => {
+export const getNewReadingSpreadUUID = (state: ReadingState) => {
   return getNewReadingState(state).spreadUUID;
 };
 
-export const getNewReadingTopic = (state: NewReadingState) => {
+export const getNewReadingTopic = (state: ReadingState) => {
   return getNewReadingState(state).topic;
 };
 
-export const getNewReadingCardsDrawn = (state: NewReadingState) => {
+export const getNewReadingCardsDrawn = (state: ReadingState) => {
   return getNewReadingState(state).cardsDrawn;
 };

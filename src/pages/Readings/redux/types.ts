@@ -12,17 +12,7 @@ export const READINGS_ACTIONS = {
 
 export type DrawMethod = 'deck' | 'digital';
 
-export interface Reading {
-  querent: string;
-  question: string;
-  drawMethod: DrawMethod;
-  timestamp: Date;
-  spreadUUID: number;
-  topic: Topic;
-  cardsDrawn: number[];
-}
-
-export interface NewReadingState {
+export interface ReadingState {
   querent: string;
   question: string;
   drawMethod: DrawMethod;

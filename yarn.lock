@@ -8768,11 +8768,6 @@ redent@^3.0.0:
     indent-string "^4.0.0"
     strip-indent "^3.0.0"
 
-redux-create-reducer@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/redux-create-reducer/-/redux-create-reducer-2.0.0.tgz#1a88a63b567ae73ef435007c26a8cf0897e3802c"
-  integrity sha512-WnTUwIKuvNWlupCRMnIi040mMqA9ALDGuUNUOSPlpz5eUP7L5AJ5/rqMXVdvOhIeQtI8ubw8nFg2zAjlrG7IIg==
-
 redux@*, redux@^4.0.0, redux@^4.0.4:
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
