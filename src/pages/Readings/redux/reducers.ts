@@ -5,7 +5,7 @@ const INITIAL_STATE: ReadingState = {
   question: '',
   drawMethod: 'deck',
   timestamp: new Date(),
-  spreadUUID: 0,
+  spreadUUID: '3248937298',
   topic: 'love',
   cardsDrawn: [],
 };

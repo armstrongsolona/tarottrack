@@ -6,6 +6,7 @@ import Form from '../../components/shared/Form/Form';
 import Input from '../../components/shared/Input/Input';
 import TextArea from '../../components/shared/TextArea/TextArea';
 import ToggleButtons from '../../components/shared/ToggleButtons/ToggleButtons';
+import Select from '../../components/shared/Select/Select';
 import {
   updateQuerent,
   updateQuestion,
@@ -32,7 +33,7 @@ interface NewReadingProps {
   question: string;
   drawMethod: DrawMethod;
   timestamp: Date;
-  spreadUUID: number;
+  spreadUUID: string;
   topic: Topic;
   cardsDrawn: number[];
   onUpdateQuerent: any;
@@ -105,6 +106,19 @@ class NewReading extends React.Component<NewReadingProps, never> {
               label='How will you draw the cards?'
               onSelect={this.handleUpdateDrawMethod}
             />
+            <Select
+              label='Spread'
+              name='new-reading__spread'
+              options={[
+                { value: '93849320809', displayText: 'Celtic Cross' },
+                { value: '84903284089', displayText: 'One Card' },
+                {
+                  value: '34890328499',
+                  displayText: 'Past Present Future',
+                },
+              ]}
+              onChange={this.handleUpdateSpreadUUID}
+            />
           </Card>
         </Form>
       </Frame>
@@ -131,7 +145,7 @@ class NewReading extends React.Component<NewReadingProps, never> {
     return onUpdateTimestamp(value);
   };
 
-  handleUpdateSpreadUUID = (value: number) => {
+  handleUpdateSpreadUUID = (value: string) => {
     const { onUpdateSpreadUUID } = this.props;
     return onUpdateSpreadUUID(value);
   };

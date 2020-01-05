@@ -17,7 +17,7 @@ export interface ReadingState {
   question: string;
   drawMethod: DrawMethod;
   timestamp: Date;
-  spreadUUID: number;
+  spreadUUID: string;
   topic: Topic;
   cardsDrawn: number[];
 }

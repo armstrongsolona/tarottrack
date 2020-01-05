@@ -29,7 +29,7 @@ export const updateTimestamp = (payload: Date): NewReadingTypes => {
   };
 };
 
-export const updateSpreadUUID = (payload: number): NewReadingTypes => {
+export const updateSpreadUUID = (payload: string): NewReadingTypes => {
   return {
     type: READINGS_ACTIONS.UPDATE_SPREAD_UUID,
     payload: payload,
