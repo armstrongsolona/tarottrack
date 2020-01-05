@@ -23,7 +23,6 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
     required,
   } = props;
 
-  const labelAsterisk = required && <LabelAsterisk>*</LabelAsterisk>;
   const labelOptional = !required && <LabelOptional> (optional)</LabelOptional>;
 
   const labelMarkup = labelHidden ? (
@@ -42,16 +41,15 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
   ) : null;
 
   return (
-    <>
+    <div>
       {labelMarkup}
-      {labelAsterisk}
       {labelOptional}
       <br />
       {children}
       <br />
       {helpTextMarkup}
       {errorTextMarkup}
-    </>
+    </div>
   );
 };
 

@@ -2,12 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Frame from '../../components/shared/Frame/Frame';
 import Card from '../../components/shared/Card/Card';
-import Flex from '../../components/shared/Flex/Flex';
 import Form from '../../components/shared/Form/Form';
 import Input from '../../components/shared/Input/Input';
 import TextArea from '../../components/shared/TextArea/TextArea';
-import CheckboxGroup from '../../components/shared/Checkbox/CheckboxGroup';
-import CheckboxButton from '../../components/shared/CheckboxButton/CheckboxButton';
+import ToggleButtons from '../../components/shared/ToggleButtons/ToggleButtons';
 import {
   updateQuerent,
   updateQuestion,
@@ -88,24 +86,25 @@ class NewReading extends React.Component<NewReadingProps, never> {
               onChange={this.handleUpdateQuestion}
             />
             <br />
-            <CheckboxGroup label='How will you draw the cards?'>
-              <Flex>
-                <CheckboxButton
-                  name='drawMethod'
-                  label='Use my own deck'
-                  id='deck'
-                  checked={drawMethod === 'deck'}
-                  onMouseDown={this.handleUpdateDrawMethod}
-                />
-                <CheckboxButton
-                  name='drawMethod'
-                  label='Use the digital deck'
-                  id='digital'
-                  checked={drawMethod === 'digital'}
-                  onMouseDown={this.handleUpdateDrawMethod}
-                />
-              </Flex>
-            </CheckboxGroup>
+            <ToggleButtons
+              id='new-reading__draw-method'
+              options={[
+                {
+                  label: 'Use my own deck',
+                  checked: drawMethod === 'deck',
+                  id: 'new-reading__draw-method--deck',
+                  value: 'deck',
+                },
+                {
+                  label: 'Use the digital deck',
+                  checked: drawMethod === 'digital',
+                  id: 'new-reading__draw-method--digital',
+                  value: 'digital',
+                },
+              ]}
+              label='How will you draw the cards?'
+              onSelect={this.handleUpdateDrawMethod}
+            />
           </Card>
         </Form>
       </Frame>
