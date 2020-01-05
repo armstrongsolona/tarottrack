@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { boxShadowInsetPressed } from '../../../styles/shared';
-import { borderRadiusRound } from '../../../styles/shared';
-import { COLORS } from '../../../constants/colors';
+import { boxShadowInsetPressed } from '../../../../styles/shared';
+import { borderRadiusRound } from '../../../../styles/shared';
+import { COLORS } from '../../../../constants/colors';
 
 interface ToggleButtonProps {
   children: string;
@@ -55,17 +55,12 @@ const ToggleButtonStyles = styled.span<ToggleButtonStylesProps>`
   margin: 0 0.5rem 0 0;
   padding: 0.75rem 1rem;
 
-  &::before,
-  &::after {
-    display: block;
-  }
-
   &:active {
     box-shadow: ${(props) =>
       props['aria-checked'] ? boxShadowInsetPressed : 'none'};
   }
 
-  &.ToggleButtons--Error {
+  &.ToggleButton--Error {
     border-bottom: 2px solid ${COLORS.BLUE_OCEAN_DARK};
   }
 `;

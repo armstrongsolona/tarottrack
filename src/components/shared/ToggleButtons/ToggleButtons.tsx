@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import ToggleButton from './ToggleButton';
+import ToggleButton from './components/ToggleButton';
 import { boxShadowInsetPressed } from '../../../styles/shared';
 import { borderRadiusRound } from '../../../styles/shared';
 import { COLORS } from '../../../constants/colors';
@@ -175,17 +175,6 @@ const ToggleButtonsWrapperStyles = styled.div`
 
 const ToggleButtonsWrapperLabelStyles = styled.label`
   line-height: 2rem;
-
-  &.ToggleButtonGroupLabel--Visually-Hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
 `;
 
 const ToggleButtonsWrapperLabelOptionalStyles = styled.span`
