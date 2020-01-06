@@ -48,7 +48,6 @@ class SavedReadingsList extends React.Component<SavedReadingsListProps, never> {
       return (
         <SavedListCardStyles>
           <SavedReadingsQuestionStyles>
-            <Tag type={dataObject.topic} />
             <span>
               <a href={dataObject.question.url}>{dataObject.question.name}</a>
             </span>
