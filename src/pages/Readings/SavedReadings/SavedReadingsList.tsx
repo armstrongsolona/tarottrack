@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Tag from '../../components/shared/Tag/Tag';
-import { Topic } from '../Spreads/redux/types';
-import { SavedListCardStyles } from '../../components/shared/Card/Card';
-import { COLORS } from '../../constants/colors';
+import Tag from '../../../components/shared/Tag/Tag';
+import { Topic } from '../../../types/types';
+import { SavedListCardStyles } from '../../../components/shared/Card/Card';
+import { COLORS } from '../../../constants/colors';
 
 export type SavedReadingsQuerentObject = {
   name: string;

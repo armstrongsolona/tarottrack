@@ -13,32 +13,40 @@ interface ButtonProps {
   icon?: React.ReactNode;
   id?: string;
   type: ButtonType;
+  onClick?(event: React.MouseEvent<HTMLButtonElement>): void;
 }
 
 export type ButtonType = 'primary' | 'secondary' | 'tertiary';
 
 const Button = (props: ButtonProps) => {
-  const { children, disabled = false, icon, id, type = 'primary' } = props;
+  const {
+    children,
+    disabled = false,
+    icon,
+    id,
+    type = 'primary',
+    onClick,
+  } = props;
 
-  let StyledButtonComponent = ButtonPrimary;
+  let StyledButtonComponent = ButtonPrimaryStyles;
 
   if (type === 'secondary') {
-    StyledButtonComponent = ButtonSecondary;
+    StyledButtonComponent = ButtonSecondaryStyles;
   } else if (type === 'tertiary') {
-    StyledButtonComponent = ButtonTertiary;
+    StyledButtonComponent = ButtonTertiaryStyles;
   }
 
   const markup = icon ? (
-    <ButtonIconWrapper>
-      <ButtonIcon>{icon}</ButtonIcon>
+    <ButtonIconWrapperStyles>
+      <ButtonIconStyles>{icon}</ButtonIconStyles>
       {children}
-    </ButtonIconWrapper>
+    </ButtonIconWrapperStyles>
   ) : (
     children
   );
 
   return (
-    <StyledButtonComponent disabled={disabled} id={id}>
+    <StyledButtonComponent disabled={disabled} id={id} onClick={onClick}>
       {markup}
     </StyledButtonComponent>
   );
@@ -59,7 +67,7 @@ export const ButtonStyles = styled.button`
   }
 `;
 
-const ButtonPrimary = styled(ButtonStyles)`
+const ButtonPrimaryStyles = styled(ButtonStyles)`
   background: ${COLORS.BLUE_BEZIQUE_MEDIUM};
   color: ${COLORS.WHITE};
 
@@ -69,11 +77,11 @@ const ButtonPrimary = styled(ButtonStyles)`
   }
 `;
 
-const ButtonSecondary = styled(ButtonStyles)`
+export const ButtonSecondaryStyles = styled(ButtonStyles)`
   background: ${COLORS.BLUE_OCEAN_MEDIUM};
   color: ${COLORS.WHITE};
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: bold;
 
   &:hover,
   &:focus {
@@ -81,9 +89,10 @@ const ButtonSecondary = styled(ButtonStyles)`
   }
 `;
 
-const ButtonTertiary = styled(ButtonStyles)`
+export const ButtonTertiaryStyles = styled(ButtonStyles)`
   background: ${COLORS.WHITE};
   color: ${({ disabled }) => (disabled ? COLORS.GREY_LIGHT : COLORS.BLACK)};
+  border: 1px solid ${COLORS.GREY_SHADOW};
 
   &:hover,
   &:focus {
@@ -91,11 +100,11 @@ const ButtonTertiary = styled(ButtonStyles)`
   }
 `;
 
-const ButtonIcon = styled.span`
+const ButtonIconStyles = styled.span`
   margin-right: 0.5rem;
 `;
 
-const ButtonIconWrapper = styled.div`
+const ButtonIconWrapperStyles = styled.div`
   display: flex;
   flex-direction: row;
 `;

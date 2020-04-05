@@ -48,8 +48,8 @@ class TextArea extends React.Component<TextAreaProps, never> {
       value,
     } = this.props;
 
-    const labelOptional = !required && (
-      <LabelOptional> (optional)</LabelOptional>
+    const labelOptional = required && (
+      <LabelOptional> *</LabelOptional>
     );
 
     const labelMarkup = labelHidden ? (
@@ -116,8 +116,9 @@ const TextAreaLabel = styled.label`
 `;
 
 const LabelOptional = styled.span`
-  color: ${COLORS.GREY_MEDIUM};
+  color: ${COLORS.RED};
   font-size: 0.8rem;
+  font-weight: bold;
 `;
 
 const TextAreaStyles = styled.textarea<TextAreaStylesProps>`
