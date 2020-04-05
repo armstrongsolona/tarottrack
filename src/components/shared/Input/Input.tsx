@@ -28,7 +28,13 @@ interface InputStylesProps {
   readonly error: boolean;
 }
 
-export type InputType = 'text' | 'email' | 'number' | 'password' | 'tel';
+export type InputType =
+  | 'text'
+  | 'email'
+  | 'number'
+  | 'password'
+  | 'tel'
+  | 'hidden';
 
 class Input extends React.Component<InputProps, never> {
   render() {
@@ -50,9 +56,7 @@ class Input extends React.Component<InputProps, never> {
       value,
     } = this.props;
 
-    const labelOptional = !required && (
-      <LabelOptional> (optional)</LabelOptional>
-    );
+    const labelOptional = required && <LabelOptional> *</LabelOptional>;
 
     const labelMarkup = labelHidden ? (
       <InputLabel className='InputLabel--Visually-Hidden'>{label}</InputLabel>
@@ -116,8 +120,9 @@ const InputLabel = styled.label`
 `;
 
 const LabelOptional = styled.span`
-  color: ${COLORS.GREY_MEDIUM};
+  color: ${COLORS.RED};
   font-size: 0.8rem;
+  font-weight: bold;
 `;
 
 const InputStyles = styled.input<InputStylesProps>`

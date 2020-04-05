@@ -11,7 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { borderRadiusTag } from '../../../styles/shared';
 import { COLORS, TAG_COLORS } from '../../../constants/colors';
-import { Topic } from '../../../pages/Spreads/redux/types';
+import { Topic } from '../../../types/types';
 
 interface TagProps {
   type: Topic;

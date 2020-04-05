@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SavedReadingsObject } from '../../Readings/SavedReadingsList';
+import { SavedReadingsObject } from '../../Readings/SavedReadings/SavedReadingsList';
 import Card from '../../../components/shared/Card/Card';
 import { COLORS } from '../../../constants/colors';
 import { ROUTES } from '../../../constants/routes';

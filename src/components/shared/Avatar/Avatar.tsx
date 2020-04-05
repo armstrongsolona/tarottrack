@@ -45,7 +45,6 @@ const AvatarInitialsStyles = styled.span`
   display: flex;
   height: 2rem;
   width: 2rem;
-
   justify-content: center;
 `;
 
