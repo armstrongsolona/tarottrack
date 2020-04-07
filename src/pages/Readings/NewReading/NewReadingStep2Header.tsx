@@ -12,8 +12,9 @@ export default function NewReadingStep2Header(
 
   return (
     <>
-      <span>for {querent}</span>
-      <h4>Spread: {spread}</h4>
+      <span>Querent: {querent}</span>
+      <br />
+      <span>{spread}</span>
     </>
   );
 }
