@@ -8,6 +8,7 @@ import NewReadingStep1 from './NewReadingStep1';
 import NewReadingStep2Deck from './NewReadingStep2Deck';
 import NewReadingStep2Digital from './NewReadingStep2Digital';
 import { DrawMethod } from '../../../types/types';
+import { toTitleCase, toSentenceCase } from '../../../utilities/strings';
 
 export default function NewReading() {
   const [step, changeStep] = useState(1);
@@ -15,12 +16,13 @@ export default function NewReading() {
   const [question, updateQuestion] = useState('');
   const [drawMethod, updateDrawMethod] = useState('deck' as DrawMethod);
   const [spreadUUID, updateSpreadUUID] = useState('');
-  console.log('step', step);
+  const [cardTitle, updateCardTitle] = useState('');
 
   const nextStep = (event: React.MouseEvent) => {
     event.preventDefault();
 
     changeStep(step + 1);
+    updateCardTitle(question);
   };
 
   const previousStep = (event: React.MouseEvent) => {
@@ -30,11 +32,11 @@ export default function NewReading() {
   };
 
   const handleUpdateQuerent = (querent: string) => {
-    updateQuerent(querent);
+    updateQuerent(toTitleCase(querent));
   };
 
   const handleUpdateQuestion = (question: string) => {
-    updateQuestion(question);
+    updateQuestion(toSentenceCase(question));
   };
 
   const handleUpdateDrawMethod = (drawMethod: DrawMethod) => {
@@ -63,7 +65,7 @@ export default function NewReading() {
 
   return (
     <Frame title='New reading'>
-      <Card title=''>
+      <Card title={cardTitle}>
         <Form
           submitButtonText='Save'
           hideSubmitButton={step === 1}

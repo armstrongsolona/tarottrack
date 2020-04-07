@@ -90,13 +90,12 @@ export const ButtonSecondaryStyles = styled(ButtonStyles)`
 `;
 
 export const ButtonTertiaryStyles = styled(ButtonStyles)`
-  background: ${COLORS.WHITE};
+  background: ${COLORS.GREY_LIGHT};
   color: ${({ disabled }) => (disabled ? COLORS.GREY_LIGHT : COLORS.BLACK)};
-  border: 1px solid ${COLORS.GREY_SHADOW};
 
   &:hover,
   &:focus {
-    background: ${COLORS.GREY_LIGHTER};
+    background: ${COLORS.GREY_LIGHT_HOVER};
   }
 `;
 
